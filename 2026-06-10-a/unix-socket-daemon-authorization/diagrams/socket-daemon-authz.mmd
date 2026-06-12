@@ -1,0 +1,8 @@
+flowchart TD
+    Client[Client process] --> Sock[Unix socket entry]
+    Sock --> Server[Daemon accept]
+    Server --> Peer[Read peer credentials]
+    Peer --> Authz[Protocol authorization]
+    Authz --> Read[Read-only command]
+    Authz --> Mutate[State-changing command]
+    Authz --> Admin[Admin command]

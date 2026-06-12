@@ -1,0 +1,23 @@
+graph TB
+    subgraph "Layer 0 — Always loaded"
+        CMD["Project description<br/>Governance index"]
+        RC[".claude/rules/common/<br/>Cross-project rules"]
+        RS[".claude/rules/&lt;submodule&gt;/<br/>Scoped rules (paths:)"]
+    end
+
+    subgraph "Layer 1 — During workflow"
+        OS["Change management system<br/>Change lifecycle"]
+    end
+
+    subgraph "Layer 2 — When coding"
+        CB["Codebase<br/>Implementation facts"]
+    end
+
+    CMD --> RC
+    CMD --> RS
+    RS -->|"paths: scoping"| CB
+    OS -->|"specs inform"| CB
+
+    style CMD fill:#e8f5e9,stroke:#2e7d32
+    style RC fill:#e8f5e9,stroke:#2e7d32
+    style RS fill:#e8f5e9,stroke:#2e7d32

@@ -1,0 +1,16 @@
+flowchart TD
+    LLM[LLM generates candidate action] --> Checks[External arbitration layer]
+
+    Checks --> Human[Human approval]
+    Checks --> Tests[Tests / CI]
+    Checks --> Policy[Policy engine]
+    Checks --> Perm[Permission boundary]
+    Checks --> Verifier[Independent verifier]
+    Checks --> Reset[Context reset / provenance]
+
+    Human --> Decision[Allow / deny / revise]
+    Tests --> Decision
+    Policy --> Decision
+    Perm --> Decision
+    Verifier --> Decision
+    Reset --> Decision

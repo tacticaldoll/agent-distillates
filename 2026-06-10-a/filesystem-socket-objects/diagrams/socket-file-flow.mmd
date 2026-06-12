@@ -1,0 +1,10 @@
+flowchart TD
+    Client[Client process] --> CFD[client fd]
+    CFD --> Connect[connect pathname]
+    Connect --> Path[VFS pathname lookup]
+    Path --> SockFile[Unix socket file]
+    SockFile --> Perm[filesystem permission check]
+    Perm --> Endpoint[kernel socket endpoint]
+    Endpoint --> Server[Server process]
+    Client <-->|socket buffer| Endpoint
+    Endpoint <-->|socket buffer| Server

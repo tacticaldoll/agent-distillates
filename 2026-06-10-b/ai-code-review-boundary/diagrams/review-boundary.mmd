@@ -1,0 +1,7 @@
+flowchart TD
+    Diff[Code diff] --> Local[Local consistency checks]
+    Local --> Pass[Looks correct]
+    Pass --> Story[Generated engineering rationale]
+    Story --> Risk[Global reasonableness not verified]
+    Risk --> Human[Human ownership gate]
+    Human --> Merge[Merge or reject]

@@ -1,0 +1,15 @@
+flowchart TD
+    Cost[Exploration cost] --> Trace[Reasoning traces]
+    Trace --> Value{Reusable value?}
+    Value -->|low| Drop[Keep no artifact or brief note]
+    Value -->|medium| Distill[Distill into summary / table]
+    Value -->|high| Crystal[Crystallize into report / runbook]
+
+    Distill --> Validate[Validation and trust labeling]
+    Crystal --> Validate
+    Validate --> Asset[Reusable knowledge asset]
+    Asset --> Reuse[Future reuse]
+    Reuse --> ROI[Positive ROI]
+
+    Validate --> Risk[Error solidification risk]
+    Risk --> ROI

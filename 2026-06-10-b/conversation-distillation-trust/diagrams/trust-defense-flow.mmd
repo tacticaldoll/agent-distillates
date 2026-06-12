@@ -1,0 +1,21 @@
+flowchart TD
+    Conversation[Raw conversation] --> Distill[Conversation distillation]
+    Distill --> Report[Structured report]
+
+    Report --> Topic[Layer 1: topic trust estimate]
+    Topic --> Public[Public and mature?]
+    Topic --> Verifiable[Verifiable by sources or experiments?]
+
+    Report --> Content[Layer 2: content skepticism]
+    Content --> Claims[Classify claims]
+    Claims --> Validate[Validation loop]
+
+    Validate --> Sources[Primary sources]
+    Validate --> Experiments[Experiments]
+    Validate --> Counter[Counterexamples]
+    Validate --> Open[Open questions]
+
+    Sources --> Trusted[Trusted learning asset]
+    Experiments --> Trusted
+    Counter --> Trusted
+    Open --> Trusted

@@ -1,0 +1,10 @@
+flowchart TD
+    Time[Long-running agent] --> Inputs[More external inputs]
+    Inputs --> Context[Expanded context and memory]
+    Context --> Mix[Instruction/data boundary blurs]
+    Mix --> Pollute[Semantic pollution accumulates]
+    Pollute --> Action[Tool-using action]
+    Action --> Impact[Real-world impact]
+
+    Pollute --> Summary[Auto-summary]
+    Summary --> Context

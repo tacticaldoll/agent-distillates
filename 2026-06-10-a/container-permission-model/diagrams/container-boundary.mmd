@@ -1,0 +1,12 @@
+flowchart TD
+    Proc[Container process] --> NS[Namespaces]
+    NS --> Mount[mount namespace]
+    NS --> PID[pid namespace]
+    NS --> Net[net namespace]
+    NS --> User[user namespace]
+
+    Proc --> Caps[Capabilities]
+    Proc --> Seccomp[Seccomp]
+    Proc --> LSM[LSM policy]
+    Proc --> CGroup[Cgroup limits]
+    Proc --> Vol[Mounted host objects]

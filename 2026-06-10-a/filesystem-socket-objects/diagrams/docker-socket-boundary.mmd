@@ -1,0 +1,8 @@
+flowchart TD
+    User[User in docker group] --> Sock[/var/run/docker.sock]
+    Sock --> Daemon[Docker daemon]
+    Daemon --> Host[Host-level operations]
+
+    User -->|connect allowed by socket mode| Sock
+    Sock -->|Docker API request| Daemon
+    Daemon -->|runs privileged actions| Host

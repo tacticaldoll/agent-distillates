@@ -1,0 +1,7 @@
+{
+  "name": "knowledge-pipeline",
+  "version": "1.0.0",
+  "description": "Knowledge extraction and governance tools — evaluate, structure, persist, and audit project knowledge from AI-assisted conversations",
+  "keywords": ["knowledge-management", "governance", "report-generation", "terminology-audit", "knowledge-extraction"],
+  "license": "MIT"
+}

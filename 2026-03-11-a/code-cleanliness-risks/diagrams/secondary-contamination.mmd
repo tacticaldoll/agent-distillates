@@ -1,0 +1,8 @@
+graph TD
+    A[Knowledge base stale] --> B[Agent makes incorrect change to DRY shared code]
+    B --> C[Code behavior becomes A-prime: neither original B nor stale A]
+    C --> D[Precipitate or doc-sync triggers]
+    D --> E[A-prime written back to knowledge base as current behavior]
+    E --> F[Next session agent reads A-prime as ground truth]
+    F --> G[Builds further on contaminated foundation]
+    G --> H[Error becomes invisible - no one questions the foundation]

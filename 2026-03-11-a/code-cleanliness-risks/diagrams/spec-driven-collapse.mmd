@@ -1,0 +1,10 @@
+graph TD
+    A[Contaminated code behavior] --> B[Spec-code reconciliation detects mismatch]
+    B --> C{Which layer?}
+    C -->|Architecture| D[Code wins - update Architecture with contaminated behavior]
+    C -->|Requirement| E[Spec wins - fix code]
+    D --> F[Contaminated behavior now documented as Architecture]
+    F --> G[Someone promotes Architecture observation to Requirement]
+    G --> H[Contaminated behavior gains RFC 2119 authority]
+    H --> I[Future agents must comply with the error]
+    I --> J[Any fix attempt is rejected as spec violation]

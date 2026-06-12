@@ -1,0 +1,11 @@
+flowchart TD
+    Err[Error observed] --> Type[Classify errno]
+    Type --> Subject[Check process credentials]
+    Subject --> Object[Identify target object]
+    Object --> Path[If file/path: check full path]
+    Object --> Socket[If socket: check pathname and listener]
+    Object --> Net[If network: check bind/connect target]
+    Path --> Boundary[Check sandbox / mount / LSM]
+    Socket --> Boundary
+    Net --> Boundary
+    Boundary --> Cause[Likely rejecting layer]

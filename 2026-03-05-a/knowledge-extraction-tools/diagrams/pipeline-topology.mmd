@@ -1,0 +1,6 @@
+graph LR
+    conversation[conversation] --> distill
+    distill -->|analysis table| crystallize
+    distill -->|analysis table| precipitate
+    crystallize --> reports[.claude/reports/]
+    precipitate --> context[context/]

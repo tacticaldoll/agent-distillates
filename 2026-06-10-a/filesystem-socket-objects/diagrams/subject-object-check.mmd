@@ -1,0 +1,19 @@
+flowchart TD
+    P[Process] --> C[Credentials]
+    C --> FSUID[fsuid / fsgid]
+    C --> Groups[supplementary groups]
+    C --> Cap[capabilities]
+
+    Obj[Kernel object] --> File[file / directory]
+    Obj --> Sock[socket]
+    Obj --> Dev[device]
+
+    FSUID --> Check[Permission check]
+    Groups --> Check
+    Cap --> Check
+    File --> Check
+    Sock --> Check
+    Dev --> Check
+
+    Check --> Allow[allow]
+    Check --> Deny[deny]

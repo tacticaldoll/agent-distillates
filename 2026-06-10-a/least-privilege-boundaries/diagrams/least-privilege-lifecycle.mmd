@@ -1,0 +1,14 @@
+flowchart TD
+    Start[Start with elevated privilege] --> Init[Privileged initialization]
+    Init --> Bind[bind low port]
+    Init --> Open[open protected resource]
+    Init --> Setup[setup socket / namespace]
+
+    Bind --> DropGroups[drop supplementary groups]
+    Open --> DropGroups
+    Setup --> DropGroups
+
+    DropGroups --> DropGID[setresgid]
+    DropGID --> DropUID[setresuid]
+    DropUID --> Verify[verify cannot regain privilege]
+    Verify --> Loop[main loop as service user]
