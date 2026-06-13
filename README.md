@@ -17,14 +17,15 @@ agent-distillates/
 ├── README.md                         ← 本檔(目錄提醒)
 ├── <date>/                           ← 獨立報告的日期桶
 │   └── <slug>/                       ← 每篇報告以 slug 隔離
-│       ├── guide.<lang>.md           ← 各語言版本
-│       └── guide.<lang>.md
-├── <date>-a/                         ← 系列:第 1 篇(依 a→b→c 為閱讀順序)
+│       ├── report.<lang>.md          ← 報告正文的各語言版本
+│       └── report.<lang>.md
+├── <date>-a/                         ← 批次或系列日期桶
+│   ├── guide.<lang>.md               ← 批次導讀(閱讀順序與跨報告關係)
 │   └── <slug>/
-│       └── guide.<lang>.md
-├── <date>-b/                         ← 系列:第 2 篇
+│       └── report.<lang>.md
+├── <date>-b/                         ← 另一個批次或系列日期桶
 │   └── <slug>/ …
-└── <date>-c/                         ← 系列:第 3 篇
+└── <date>-c/                         ← 另一個批次或系列日期桶
     └── <slug>/ …
 ```
 
@@ -33,16 +34,20 @@ agent-distillates/
 | 層級 | 規則 |
 |---|---|
 | **日期桶 `<date>`** | ISO 格式 `YYYY-MM-DD`。**獨立**報告用裸日期。 |
-| **系列後綴 `-a/-b/-c`** | 僅當多篇報告構成**有序系列**時使用,小寫字母依閱讀順序遞增接在日期後(`2026-06-12-a`、`-b`、`-c`)。 |
+| **系列後綴 `-a/-b/-c`** | 當同一天有多個批次、或多篇報告構成需導讀的系列時使用,小寫字母依序接在日期後(`2026-06-12-a`、`-b`、`-c`)。 |
 | **報告 `<slug>/`** | 一律以 slug 子目錄**隔離每一篇**報告。slug 為小寫 kebab-case、純 ASCII,由標題衍生,是報告的穩定識別;同篇的各語言版本**共用同一個 slug**。 |
-| **檔名 `guide.<lang>.md`** | 固定 base name `guide` + `.<lang>` + `.md`。`<lang>` 用 BCP-47 標籤:`en`、`zh-TW`、`zh-CN`、`ja`…。**一律標註語言,不使用無標籤的 `guide.md`。** 同篇的不同語言並列在同一個 `<slug>/` 內。 |
+| **正文檔名 `report.<lang>.md`** | 每篇報告正文固定 base name `report` + `.<lang>` + `.md`。`<lang>` 用 BCP-47 標籤:`en`、`zh-TW`、`zh-CN`、`ja`…。同篇的不同語言並列在同一個 `<slug>/` 內。 |
+| **導讀檔名 `guide.<lang>.md`** | 僅放在日期桶根目錄,用於批次導讀、閱讀順序與跨報告關係;不放在單篇 `<slug>/` 內。 |
 
 ## 獨立 vs 系列
 
-- **獨立報告**:`<date>/<slug>/`。同一天若產出**多篇彼此獨立**的報告,共用一個
-  `<date>/` 桶、各自一個 `<slug>/` 即可(slug 已足以隔離,不需後綴)。
-- **系列**:當多篇是**刻意排序、需依序閱讀**的一組時,才用 `<date>-a/b/c` 為各
-  桶定序,每桶內仍以 `<slug>/` 放該篇。
+- **獨立報告**:`<date>/<slug>/report.<lang>.md`。同一天若產出**多篇彼此獨立**的
+  報告,共用一個 `<date>/` 桶、各自一個 `<slug>/` 即可(slug 已足以隔離,不需後綴)。
+- **批次導讀**:當同一日期桶內多篇報告需要共同背景、閱讀順序或跨報告連結時,在
+  日期桶根目錄新增 `guide.<lang>.md`。
+- **系列**:當多篇是**刻意排序、需依序閱讀**的一組時,可用 `<date>-a/b/c` 區分
+  不同批次或系列段落;每桶根目錄可放 `guide.<lang>.md`,每篇正文仍放在
+  `<slug>/report.<lang>.md`。
 
 ## Commit 風格
 
@@ -62,20 +67,21 @@ commit message 以簡短、可掃描為主,把重點放在蒸餾物的新增、�
 
 ```
 agent-distillates/2026-06-12/separating-by-role-owner-and-time/
-├── guide.zh-TW.md
-└── guide.en.md
+├── report.zh-TW.md
+└── report.en.md
 ```
 
-假想的三篇有序系列:
+帶批次導讀的系列:
 
 ```
-agent-distillates/2026-06-12-a/<slug>/guide.en.md
-agent-distillates/2026-06-12-b/<slug>/guide.en.md
-agent-distillates/2026-06-12-c/<slug>/guide.en.md
+agent-distillates/2026-06-12-a/guide.zh-TW.md
+agent-distillates/2026-06-12-a/<slug-1>/report.zh-TW.md
+agent-distillates/2026-06-12-a/<slug-2>/report.zh-TW.md
+agent-distillates/2026-06-12-a/<slug-3>/report.zh-TW.md
 ```
 
 ## 備註
 
 - 報告**內容格式**(標題、`Structure`/`Date`/`Source`/`Status` 表頭、章節)由
   crystallize 規範定義,不在本檔範圍。
-- 報告語言以檔名 `<lang>` 標示;原始撰寫語言可在報告本文的來源/狀態欄另記。
+- 報告與導讀語言都以檔名 `<lang>` 標示;原始撰寫語言可在報告本文的來源/狀態欄另記。
