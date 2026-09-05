@@ -17,28 +17,28 @@
 
 ## 分析 (Analysis)
 
-對損失 \(L(\theta)\)，最基本的更新式為：
+對損失 $L(\theta)$，最基本的更新式為：
 
-\[
+$$
 \theta_{t+1}=\theta_t-\eta\nabla_\theta L(\theta_t),
-\]
+$$
 
-其中 \(\eta\) 是學習率。導數描述局部斜率，所以更新只保證在足夠小的鄰域內傾向降低損失；非凸目標、尺度差異與隨機批次都會改變路徑。
+其中 $\eta$ 是學習率。導數描述局部斜率，所以更新只保證在足夠小的鄰域內傾向降低損失；非凸目標、尺度差異與隨機批次都會改變路徑。
 
-若兩層網路為 \(\hat y=W_2\sigma(W_1x)\)，鏈式法則把輸出誤差拆回各層：
+若兩層網路為 $\hat y=W_2\sigma(W_1x)$，鏈式法則把輸出誤差拆回各層：
 
-\[
+$$
 \frac{\partial L}{\partial W_1}
 =
 \frac{\partial L}{\partial \hat y}
 \frac{\partial \hat y}{\partial \sigma}
 \frac{\partial \sigma}{\partial (W_1x)}
 \frac{\partial (W_1x)}{\partial W_1}.
-\]
+$$
 
 反向傳播不是另一種最佳化器。它只是重用中間結果，避免對每個參數重算完整導數；最佳化器再使用這些梯度更新參數。
 
-下列實驗以一個參數擬合 \(y=3x\)，直接展示梯度如何改變權重：
+下列實驗以一個參數擬合 $y=3x$，直接展示梯度如何改變權重：
 
 ```python
 import numpy as np

@@ -19,15 +19,15 @@ RNN 讓資訊依時間步逐次傳遞。Transformer 則使用自我注意力（s
 
 縮放點積注意力（scaled dot-product attention）寫成：
 
-\[
+$$
 \operatorname{Attention}(Q,K,V)
 =
 \operatorname{softmax}\!\left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V.
-\]
+$$
 
-查詢 \(Q\) 與鍵 \(K\) 的點積產生關聯分數，Softmax 將每列轉為權重，再對值 \(V\) 加權。除以 \(\sqrt{d_k}\) 是為了控制高維點積的尺度，避免 Softmax 過早飽和。
+查詢 $Q$ 與鍵 $K$ 的點積產生關聯分數，Softmax 將每列轉為權重，再對值 $V$ 加權。除以 $\sqrt{d_k}$ 是為了控制高維點積的尺度，避免 Softmax 過早飽和。
 
 下列程式展示同一組值如何因查詢改變而被重新混合：
 
@@ -51,7 +51,7 @@ print(np.round(weights @ V, 3))
 
 因為注意力本身沒有序列順序，Transformer 還需要位置編碼（positional encoding）。原始架構加入正弦與餘弦位置向量，使相同 token 位於不同位置時得到不同表示。
 
-標準全注意力需要形成長度 \(N\) 的 \(N\times N\) 分數矩陣。它縮短關聯路徑，卻以記憶體與計算成本交換；實際成本還包含前饋層、批次大小與硬體利用率，不能只由 \(O(N^2)\) 判斷速度。
+標準全注意力需要形成長度 $N$ 的 $N\times N$ 分數矩陣。它縮短關聯路徑，卻以記憶體與計算成本交換；實際成本還包含前饋層、批次大小與硬體利用率，不能只由 $O(N^2)$ 判斷速度。
 
 ## 反思 (Reflection)
 

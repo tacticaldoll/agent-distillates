@@ -17,18 +17,18 @@
 
 ## 分析 (Analysis)
 
-令兩個任務損失為 \(L_A(\theta)\) 與 \(L_B(\theta)\)。針對 B 執行一步梯度下降：
+令兩個任務損失為 $L_A(\theta)$ 與 $L_B(\theta)$。針對 B 執行一步梯度下降：
 
-\[
+$$
 \theta'=\theta-\eta\nabla L_B(\theta).
-\]
+$$
 
 以一階近似觀察 A：
 
-\[
+$$
 L_A(\theta')\approx L_A(\theta)
 -\eta\nabla L_A(\theta)^\top\nabla L_B(\theta).
-\]
+$$
 
 若兩個梯度內積為負，更新 B 會在局部提高 A 的損失。這稱為梯度干涉（gradient interference）。它提供一個機制，但不是遺忘的完整充分條件；學習率、曲率、資料順序與參數冗餘都會改變實際結果。
 
@@ -55,13 +55,13 @@ for step in range(7):
 
 彈性權重固化（elastic weight consolidation）為舊任務重要參數加入二次懲罰：
 
-\[
+$$
 L(\theta)=L_B(\theta)+
 \frac{\lambda}{2}\sum_iF_i
 (\theta_i-\theta^*_{A,i})^2.
-\]
+$$
 
-\(F_i\) 近似參數對 A 的重要性。這使重要方向較難移動，但代價是降低可塑性；當任務真的需要重寫同一組參數時，保留與學習之間沒有免費解。
+$F_i$ 近似參數對 A 的重要性。這使重要方向較難移動，但代價是降低可塑性；當任務真的需要重寫同一組參數時，保留與學習之間沒有免費解。
 
 ## 反思 (Reflection)
 

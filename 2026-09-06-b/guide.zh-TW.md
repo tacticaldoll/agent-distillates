@@ -14,7 +14,7 @@
 
 ## 概念關係
 
-診斷時可以把觀察到的表現寫成 \(S(\theta,P,c,m)\)。四個輸入分別代表模型參數、資料分佈、推論設定與測量方法。其餘報告各自深入其中一種改變，但不假設所有失效都共享同一病因。
+診斷時可以把觀察到的表現寫成 $S(\theta,P,c,m)$。四個輸入分別代表模型參數、資料分佈、推論設定與測量方法。其餘報告各自深入其中一種改變，但不假設所有失效都共享同一病因。
 
 - [能力為何沒有形成](optimization-failures/report.zh-TW.md)與[模型為何學錯](spurious-learning/report.zh-TW.md)都可能在首次訓練後出現，前者關注可訓練性，後者關注被選中的規律。
 - [新知識為何覆蓋舊能力](catastrophic-forgetting/report.zh-TW.md)與[壓縮保留了分數，是否保留了能力](compression-loss/report.zh-TW.md)都會改變模型，卻分別來自新目標與部署近似。

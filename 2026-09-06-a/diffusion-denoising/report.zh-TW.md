@@ -19,28 +19,28 @@
 
 常見前向程序定義為：
 
-\[
+$$
 q(x_t\mid x_{t-1})
 =\mathcal N(\sqrt{1-\beta_t}\,x_{t-1},\beta_tI).
-\]
+$$
 
-令 \(\alpha_t=1-\beta_t\) 且 \(\bar\alpha_t=\prod_{s=1}^{t}\alpha_s\)，便能直接從原始資料取得任意時間步：
+令 $\alpha_t=1-\beta_t$ 且 $\bar\alpha_t=\prod_{s=1}^{t}\alpha_s$，便能直接從原始資料取得任意時間步：
 
-\[
+$$
 x_t=\sqrt{\bar\alpha_t}x_0
 +\sqrt{1-\bar\alpha_t}\epsilon,
 \qquad \epsilon\sim\mathcal N(0,I).
-\]
+$$
 
-這個封閉形式讓訓練不必真的逐步加噪。模型可隨機抽取 \(t\)，再最小化噪聲預測誤差：
+這個封閉形式讓訓練不必真的逐步加噪。模型可隨機抽取 $t$，再最小化噪聲預測誤差：
 
-\[
+$$
 L(\theta)=
 \mathbb E_{x_0,t,\epsilon}
 \left[\|\epsilon-\epsilon_\theta(x_t,t)\|_2^2\right].
-\]
+$$
 
-下列實驗展示訊號與噪聲的比例如何隨 \(\bar\alpha_t\) 改變：
+下列實驗展示訊號與噪聲的比例如何隨 $\bar\alpha_t$ 改變：
 
 ```python
 import numpy as np
@@ -56,9 +56,9 @@ for alpha_bar in (0.9, 0.5, 0.1, 0.01):
     print(alpha_bar, np.round(xt, 3), round(correlation, 3))
 ```
 
-當 \(\bar\alpha_t\) 變小，原始訊號係數下降。單次四維樣本的相關係數會受隨機性影響，但公式清楚顯示訊號與噪聲如何混合。
+當 $\bar\alpha_t$ 變小，原始訊號係數下降。單次四維樣本的相關係數會受隨機性影響，但公式清楚顯示訊號與噪聲如何混合。
 
-生成階段使用學得的 \(\epsilon_\theta\) 估計反向轉移。採樣器、步數與噪聲排程會影響速度和品質，但不能在沒有實驗時籠統宣稱誤差必然逐步放大。
+生成階段使用學得的 $\epsilon_\theta$ 估計反向轉移。採樣器、步數與噪聲排程會影響速度和品質，但不能在沒有實驗時籠統宣稱誤差必然逐步放大。
 
 ## 反思 (Reflection)
 
