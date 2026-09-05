@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 一個模型昨天準確率 90%，今天只剩 75%，直覺上像是模型退化了。然而，同一個數字可能來自參數被更新、使用者族群改變、推論精度降低，或評測題目換了一批。

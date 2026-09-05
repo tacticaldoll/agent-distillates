@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 模型表現下降只是一個警報，不是根因。要證明能力真的退化，需要重現基線、固定比較條件，並排除資料、服務設定與評測程式的改變。

@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 AI 公司尚未形成穩定利潤時，仍可能取得高額融資；成熟上市公司則可能因 AI 投資增加而同時獲得成長期待與毛利壓力。兩者都在定價未來，卻不是同一套計算。

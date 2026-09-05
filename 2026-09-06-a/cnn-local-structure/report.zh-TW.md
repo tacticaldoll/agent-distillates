@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 全連接網路把每個輸入位置視為不同變數。影像卻具有局部性：相鄰像素通常比遠距像素更相關，同一種邊緣也可能出現在不同位置。

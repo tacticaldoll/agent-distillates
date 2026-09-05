@@ -4,13 +4,13 @@
 
 ## 閱讀順序
 
-1. [賣的不是模型](ai-product-stack/report.zh-TW.md)：拆解能力、服務、人工補償與責任。
-2. [輸出為何看起來像行動者](anthropomorphic-interface/report.zh-TW.md)：區分社會反應、行動授權與責任投射。
-3. [不可見能力如何被展示](benchmark-marketing/report.zh-TW.md)：分析 Demo、Benchmark 與市場外推。
-4. [未來如何被提前定價](capital-pricing/report.zh-TW.md)：對比創投情境與公開市場現金流。
-5. [AI 為何不是普通 SaaS](ai-saas-economics/report.zh-TW.md)：追蹤推論成本、雲端租金與毛利結構。
-6. [企業如何與 AI 共同生產價值](organizational-coproduction/report.zh-TW.md)：分析流程適配、人工補償與異質效應。
-7. [敘事何時成真，何時破裂](narrative-reflexivity/report.zh-TW.md)：建立反身性迴圈及其現實邊界。
+1. [賣的不是模型](ai-product-stack/report.zh-TW.md)（分析論文）：拆解能力、服務、人工補償與責任。
+2. [輸出為何看起來像行動者](anthropomorphic-interface/report.zh-TW.md)（分析論文）：區分社會反應、行動授權與責任投射。
+3. [不可見能力如何被展示](benchmark-marketing/report.zh-TW.md)（分析論文）：分析 Demo、Benchmark 與市場外推。
+4. [未來如何被提前定價](capital-pricing/report.zh-TW.md)（分析論文）：對比創投情境與公開市場現金流。
+5. [AI 為何不是普通 SaaS](ai-saas-economics/report.zh-TW.md)（分析論文）：追蹤推論成本、雲端租金與毛利結構。
+6. [企業如何與 AI 共同生產價值](organizational-coproduction/report.zh-TW.md)（分析論文）：分析流程適配、人工補償與異質效應。
+7. [敘事何時成真，何時破裂](narrative-reflexivity/report.zh-TW.md)（分析論文）：建立反身性迴圈及其現實邊界。
 
 ## 概念關係
 

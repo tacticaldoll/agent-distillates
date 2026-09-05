@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 生成對抗網路（generative adversarial network）不直接為每筆資料指定重建目標。它讓生成器產生樣本，再讓判別器分辨真實資料與生成資料，透過雙方競爭逼近資料分佈。

@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 RNN 讓資訊依時間步逐次傳遞。Transformer 則使用自我注意力（self-attention），讓一個位置直接聚合其他位置的表示。這縮短了位置間的計算路徑，也讓訓練可沿序列位置平行進行。

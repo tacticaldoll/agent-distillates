@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 擴散模型（diffusion model）把生成問題拆成多個較小步驟。訓練時逐步對真實資料加入噪聲，模型學習在不同噪聲程度下預測被加入的噪聲；生成時則從隨機噪聲開始反向取樣。

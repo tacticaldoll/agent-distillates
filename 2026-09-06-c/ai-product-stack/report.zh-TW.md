@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 企業簽約購買「AI 助理」時，交付物看似是一個模型。實際付款換來的通常還包括 API、權限、監測、整合、支援，以及出錯後的處理程序。

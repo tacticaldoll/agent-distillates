@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 模型理論上能表示某種函數，不代表訓練一定能找到它。當損失停滯或輸出失去多樣性時，人們常說模型退化；但若能力從未形成，更準確的分類是取得失敗（acquisition failure）。

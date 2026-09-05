@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 序列資料的目前輸出常依賴先前輸入。遞迴式神經網路（recurrent neural network）以重複套用同一個狀態轉換，將可變長度歷史映射成固定維度的隱藏狀態。

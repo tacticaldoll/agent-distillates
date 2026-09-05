@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 模型能表示某個函數，不代表訓練一定能找到它。神經網路的能力還取決於誤差如何穿過計算圖，以及每個參數收到多少修正訊號。

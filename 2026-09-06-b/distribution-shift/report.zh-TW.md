@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 部署模型可以在參數完全不變時失去效用。使用者族群、感測器、政策與語言都可能改變，使訓練資料不再代表目前世界。

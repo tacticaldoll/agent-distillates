@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 一段流暢回答很容易被描述成「它知道」「它想要」或「它拒絕」。這些句子能快速溝通系統行為，卻也會把輸出形式、內部機制與法律責任壓成同一個行動者。

@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 消費者可以試駕汽車，卻難以直接檢查一個模型涵蓋多少情境。Demo 提供具體體驗，Benchmark 提供可比較數字；兩者都把不可見能力轉成市場可讀訊號。

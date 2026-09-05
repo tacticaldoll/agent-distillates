@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 模型從訓練環境移到手機或邊緣裝置時，常需要減少記憶體與計算。剪枝、量化與知識蒸餾都可稱為壓縮，卻以不同方式建立近似模型。

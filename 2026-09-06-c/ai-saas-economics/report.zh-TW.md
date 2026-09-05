@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 傳統 SaaS 的一份程式可以服務大量客戶，因此常被想像成新增使用量幾乎免費。生成式 AI 每次請求卻需要推論，輸入長度、輸出長度、模型大小與延遲承諾都會消耗計算資源。

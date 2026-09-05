@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 模型在測試集表現良好，仍可能依賴錯誤理由。只要某個表面特徵在訓練資料上穩定預測標籤，經驗風險最小化就有理由使用它。

@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 傳統程式通常由開發者直接寫出規則。機器學習（machine learning）則先定義可選函數的範圍，再以資料決定其中的參數。這個差異讓「模型學會了什麼」不能只靠閱讀程式碼回答。

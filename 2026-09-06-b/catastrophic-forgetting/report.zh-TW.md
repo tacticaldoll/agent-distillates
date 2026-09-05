@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 模型先完成任務 A，再針對任務 B 微調，A 的表現可能急劇下降。這種災難性遺忘（catastrophic forgetting）確實涉及參數隨時間改變，但它不是參數自然老化。

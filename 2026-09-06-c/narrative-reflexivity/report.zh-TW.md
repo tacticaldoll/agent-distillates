@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 市場敘事通常被放在產品之外，像是替既有技術加上的廣告。AI 卻提供更複雜的情況：相信市場會成長，可以促使資本建立資料中心、招募人才並補貼採用，而這些投入確實可能改善產品。

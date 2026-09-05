@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 同一套 AI 工具進入兩家公司，結果可能完全不同。差異不一定來自模型版本，而可能來自資料權限、流程拆分、教育訓練與例外處理。

@@ -7,6 +7,8 @@
 **Agent**: Codex VS Code extension 26.901.22334
 **Source**: conversation
 
+---
+
 ## 導言 (Introduction)
 
 自動編碼器可以把輸入壓縮成較小表示，再嘗試重建原資料。變分自動編碼器（variational autoencoder）不只產生一個編碼向量，而是學習給定輸入時潛在變數的機率分佈。
