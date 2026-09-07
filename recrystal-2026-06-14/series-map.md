@@ -88,8 +88,6 @@ flowchart LR
 ## Metadata
 
 ```toml
-series = ["人機協作與能力培育：介質失真、判斷力內化與團隊擴散"]
-
 [[reports]]
 slug = "ai-collaboration-capability-development"
 title = "人機協作與能力培育：從外化失效到判斷力內化"
