@@ -11,7 +11,7 @@
 
 拿一張影像分類器辨識正確的照片，把它整體往右移動一個像素。內容完全沒變——同一隻貓、同一個背景、同樣的光照。分類結果可能從「貓」變成別的類別。
 
-這不是刻意構造的對抗樣本。研究者把整段影片逐格輸入分類器，相鄰格之間的物體位移只有一兩個像素，而預測機率在格與格之間劇烈跳動。他們用「鋸齒程度」量化這個現象，發現在標準的 ImageNet 分類器上它普遍存在。[Azulay 與 Weiss，《Why do deep convolutional networks generalize so poorly to small image transformations?》](https://arxiv.org/abs/1805.12177)
+這不是刻意構造的對抗樣本。研究者把整段影片逐格輸入分類器，相鄰格之間的物體位移只有一兩個像素，而預測機率在格與格之間劇烈跳動。他們用「鋸齒程度」計量這個現象，發現在標準的 ImageNet 分類器上它普遍存在。[Azulay 與 Weiss，《Why do deep convolutional networks generalize so poorly to small image transformations?》](https://arxiv.org/abs/1805.12177)
 
 這個結果直接牴觸了一句幾乎每份教材都會寫的話：卷積網路具有平移不變性。那句話不是錯的——它有嚴格的數學證明。問題在於證明依賴一組前提，而標準的卷積網路架構**系統性地違反其中至少三個**。
 
