@@ -3,8 +3,8 @@
 <!-- front matter -->
 **Structure**: Analytical Essay
 **Date**: 2026-09-10T07:22
-**Model**: Opus 5 (1M context)
-**Agent**: Claude Code VSCode Extension
+**Model**: Claude Opus 5
+**Agent**: Claude Code VSCode Extension 2.1.266
 **Source**: conversation
 
 ## 導言
