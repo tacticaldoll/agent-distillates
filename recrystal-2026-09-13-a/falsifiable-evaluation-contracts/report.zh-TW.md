@@ -15,7 +15,7 @@
 
 成功率自 57% 暴跌至 8%，並非源於分子生物學的停滯或醫學科研能力的倒退。被檢驗的藥物機制與實驗設計並未改變，**唯一改變的是：研究者在「看見數據之後任意調整指標與假說」的自由度被物理級阻斷**。
 
-在當代機器學習與資料工程領域，類似的「事後合理化自由度」正處於空前泛濫的狀態。多跑十個隨機種子報最佳值、在多個指標中挑選顯著項、邊看曲線邊決定何時停止訓練（Optional Stopping）、事後修正假設（HARKing, Hypothesizing After the Results are Known）——這些在工程團隊內部被冠以「敏捷迭代」之名的日常實踐，本質上將經驗科學的偽陽性率自名目的 5% 推高至近 80%（參閱 [Simmons、Nelson 與 Simonsohn，2011 / 《False-Positive Psychology》](https://doi.org/10.1177/0956797611417632)；以及 [Henderson 等人，2018 / 《Deep Reinforcement Learning That Matters》](https://arxiv.org/abs/1709.06560)）。
+在當代機器學習與資料工程領域，類似的「事後合理化自由度」正處於空前泛濫的狀態。多跑十個隨機種子報最佳值、在多個指標中挑選顯著項、邊看曲線邊決定何時停止訓練、事後修正假設（HARKing, Hypothesizing After the Results are Known）——這些在工程團隊內部被冠以「敏捷迭代」之名的日常實踐，本質上將經驗科學的偽陽性率自名目的 5% 推高至近 80%（參閱 [Simmons、Nelson 與 Simonsohn，2011 / 《False-Positive Psychology》](https://doi.org/10.1177/0956797611417632)；以及 [Henderson 等人，2018 / 《Deep Reinforcement Learning That Matters》](https://arxiv.org/abs/1709.06560)）。
 
 一項無法被推翻的評估，在認識論上不具備任何資訊價值。本文旨在將經驗驗證從脆弱的人類個人自律，昇華為以可證偽性為核心的架構工程：建立事前不可變凍結的八欄評估契約，分析研究者自由度的累計破壞極限，並透過資料庫級時序不變式與自動化阻斷管線，構築防篡改的經驗治理邊界。
 
