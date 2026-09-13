@@ -3,7 +3,7 @@
 <!-- front matter -->
 **Structure**: Experience Report
 **Date**: 2026-03-05T09:20
-**Model**: claude-opus-4-6
+**Model**: Claude Opus 4.6
 **Agent**: Claude Code VSCode Extension 2.1.66
 **Source**: reconstruction
 

@@ -2,7 +2,7 @@
 
 **Structure**: Analytical Essay
 **Date**: 2026-03-24T00:00
-**Model**: claude-sonnet-4-6
+**Model**: Claude Sonnet 4.6
 **Agent**: Claude Code VSCode Extension 2.1.72
 **Source**: conversation
 

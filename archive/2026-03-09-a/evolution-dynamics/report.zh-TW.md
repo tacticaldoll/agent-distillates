@@ -3,7 +3,7 @@
 <!-- front matter -->
 **Structure**: Analytical Essay
 **Date**: 2026-03-09T23:00
-**Model**: claude-opus-4-6
+**Model**: Claude Opus 4.6
 **Agent**: Claude Code VSCode Extension 2.1.72
 **Source**: conversation
 

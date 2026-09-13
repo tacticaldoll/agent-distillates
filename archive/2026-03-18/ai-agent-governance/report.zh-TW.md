@@ -3,7 +3,7 @@
 <!-- front matter -->
 **Structure**: Experience Report
 **Date**: 2026-03-18T21:00
-**Model**: claude-opus-4-6
+**Model**: Claude Opus 4.6
 **Agent**: Claude Code VSCode Extension 2.1.72
 **Source**: conversation
 **Tags**: 知識衰減, 查找順序, 絞殺者模式, 治理機制
