@@ -19,7 +19,7 @@
 
 ## 分析
 
-代理量升格的形式錯誤，本質上是高維經驗分佈到一維實數軸投影時所造成的資訊單射破缺。設現實任務的真實端到端價值函數為 $U: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$，其中 $\mathcal{S}$ 為複雜環境狀態空間，$\mathcal{A}$ 為系統實施的干預行動。我們在開發期所能觀測的評測指標僅為代理函數 $M: \mathcal{H} \times \mathcal{D}_{\text{test}} \to \mathbb{R}$，其中 $\mathcal{H}$ 為模型假說空間，$\mathcal{D}_{\text{test}}$ 為靜態評測資料集。
+代理量升格的形式錯誤，本質上是高維經驗分佈到一維實數軸投影時所造成的資訊單射破缺。設現實任務的真實端到端價值函數為 $U: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$，其中 $\mathcal{S}$ 為複雜環境狀態空間，$\mathcal{A}$ 為系統實施的干預行動。我們在開發期所能觀測的評測指標僅為代理函數 $M: \mathcal{H} \times \mathcal{D}_{\text{test}} \to \mathbb{R}$，其中 $\mathcal{H}$ 為模型假設空間，$\mathcal{D}_{\text{test}}$ 為靜態評測資料集。
 
 升格謬誤的核心斷言為：若 $M(h_1) > M(h_2)$，則必有 $\mathbb{E}[U(h_1)] > \mathbb{E}[U(h_2)]$。這種推論在數學上唯有在極其嚴苛的單調性與無混淆條件下才成立，而在真實世界中，評測過程普遍存在「極值挑選偏差（Best-of-$K$ Selection Bias）」與「多重假設檢定（Multiple Testing）失真」。
 

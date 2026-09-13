@@ -13,7 +13,7 @@
 
 調查揭露了一條令人震驚的因果鏈：工程團隊在部署更新時，將新程式碼推送到八台伺服器中的七台，第八台伺服器上殘留了一段已退役長達九年的測試程式碼（Power Peg）；更嚴重的是，新舊程式碼共用了一個未經重構的設定旗標。當開盤指令湧入時，第八台伺服器將客戶訂單錯誤解讀為「無需等待市場成交回報、無限高速市價吃單」。而在這致命的 45 分鐘內，系統發出的 97 封自動警示郵件被無人值守的郵件群組忽視，且系統架構內部**完全不存在任何全域交易額度熔斷機制（Global Blast Radius Limiter）或主權終止開關（Sovereign Kill Switch）**。生成訊號的演算法與執行實體操作的外部環境之間，缺乏一層不可繞過的物理防護。
 
-類似的「交付邊界幻覺」在企業級人工智慧導入中亦屢見不鮮。2017 年 2 月，德州大學系統內部稽核室發布了針對德州大學安德森癌症中心（MD Anderson）與 IBM 合作「腫瘤學專家顧問（Oncology Expert Advisor）」專案的專案稽核報告（參見 [UT System Audit Office, 2017 / MD Anderson IBM Watson Audit](https://www.utsystem.edu/sites/default/files/documents/UT%20System%20Audit%20Reports/2017/17-audit-mdanderson-watson.pdf)）。該院累計支付了超過 6,200 萬美元的研發與諮詢費用，然而該認知運算系統最終徹底未能投入臨床日常使用。審計揭示，專案團隊誤以為採購了「具備臨床推理能力的智慧核心」，卻忽視了模型輸出要轉化為符合醫療法規、與電子病歷（EMR）深度整合、具備醫師法定簽核與追責界面的社會技術交付鏈長達六個層級。
+類似的「交付邊界錯覺」在企業級人工智慧導入中亦屢見不鮮。2017 年 2 月，德州大學系統內部稽核室發布了針對德州大學安德森癌症中心（MD Anderson）與 IBM 合作「腫瘤學專家顧問（Oncology Expert Advisor）」專案的專案稽核報告（參見 [UT System Audit Office, 2017 / MD Anderson IBM Watson Audit](https://www.utsystem.edu/sites/default/files/documents/UT%20System%20Audit%20Reports/2017/17-audit-mdanderson-watson.pdf)）。該院累計支付了超過 6,200 萬美元的研發與諮詢費用，然而該認知運算系統最終徹底未能投入臨床日常使用。審計揭示，專案團隊誤以為採購了「具備臨床推理能力的智慧核心」，卻忽視了模型輸出要轉化為符合醫療法規、與電子病歷（EMR）深度整合、具備醫師法定簽核與追責界面的社會技術交付鏈長達六個層級。
 
 這兩起事故共同驗證了系統工程的不變真理：**「文字或數字輸出，與實體世界的不可逆後果之間，隔著一道巨大的社會技術交付鴻溝」**。若不建立具備形式化停止時間（Stopping Time）與嚴格爆炸半徑（Blast Radius）約制的獨立授權狀態機，任何先進演算法的輸出都可能在毫秒之間演化為摧毀組織的實體災難。
 
