@@ -17,7 +17,7 @@
 
 幾乎在同一時期，自然語言處理領域亦爆發了關於「注意力熱圖是否代表模型推理理由」的深層論戰。實證研究表明，透過微小擾動，完全可以構造出一組注意力權重完全相反、但最終模型預測保持不變的注意力分佈（參閱 [Jain 與 Wallace，2019 / 《Attention is not Explanation》](https://arxiv.org/abs/1902.10186)）。而在遞迴與深層網路的記憶機制中，研究者早已證實：即便透過線性探針（Linear Probe）能從末端隱藏狀態以極高精度解碼出早期輸入資訊，反向傳播的梯度訊號依然可能因梯度消失或截斷（Truncated BPTT）而衰減為零，使早期參數無法獲得任何有效的信用分配（參閱 [Jozefowicz 等人，2015 / 《An Empirical Exploration of Recurrent Network Architectures》](https://proceedings.mlr.press/v37/jozefowicz15.html)）。
 
-這一連串事故揭示了現代深度模型解釋中的核心本體論危機：**「資訊在內部表徵中存在」或「中間變數亮起高權重」，在統計學上僅證明了相關性，絕不等於因果決策的充分依據**。本文旨在透過結構因果模型（Structural Causal Models, SCM）與中介分析（Mediation Analysis），解構表徵探測與因果歸因之間的脫鉤機制，剖析殘差旁路（Residual Bypass）對注意力路由的幾何遮蔽，並確立嚴格的反事實介入（Counterfactual Intervention）驗證規範。
+這一連串事故揭示了現代深度模型解釋中的核心本體論危機：**「資訊在內部表徵中存在」或「中間變數亮起高權重」，在統計學上僅證明了相關性，絕不等於因果決策的充分依據**。本文旨在透過結構因果模型（Structural Causal Models, SCM）與中介分析（Mediation Analysis），解構表徵探測與因果歸因之間的斷裂機制，剖析殘差旁路（Residual Bypass）對注意力路由的幾何遮蔽，並確立嚴格的反事實介入（Counterfactual Intervention）驗證規範。
 
 ---
 
@@ -53,7 +53,7 @@ flowchart LR
     style Sum fill:#eebefa,stroke:#be4bdb,stroke-width:2px
 ```
 
-根據因果中介分析的奠基理論（參閱 [Pearl，2001 / 《Direct and Indirect Effects》](https://doi.org/10.5555/2074022.2074073)），一個中介變數 $M$ 對結果 $Y$ 的真實因果貢獻，必須透過**自然直接效應（Natural Direct Effect, NDE）**與**自然間接效應（Natural Indirect Effect, NIE）**進行量化拆解。給定基準輸入 $x^*$ 與反事實輸入 $x$：
+根據因果中介分析的奠基理論（參閱 [Pearl，2001 / 《Direct and Indirect Effects》](https://doi.org/10.5555/2074022.2074073)），一個中介變數 $M$ 對結果 $Y$ 的真實因果貢獻，必須透過**自然直接效應（Natural Direct Effect, NDE）**與**自然間接效應（Natural Indirect Effect, NIE）**進行定量拆解。給定基準輸入 $x^*$ 與反事實輸入 $x$：
 
 $$
 \text{TE}(x, x^*) = Y(x) - Y(x^*) = \underbrace{\big[Y(x, M(x^*)) - Y(x^*, M(x^*))\big]}_{\text{NDE}} + \underbrace{\big[Y(x, M(x)) - Y(x, M(x^*))\big]}_{\text{NIE}}.
@@ -366,4 +366,4 @@ func main() {
 
 資訊在內部狀態中的殘留，不代表反向信用的打通；熱圖在特徵矩陣上的聚焦，不代表決策因果的流動。深層神經網路的複雜幾何與殘差旁路拓撲，為中間變數構建了一面高維度掩護牆，使大量的相關性偽影被誤讀為系統的「思考過程」。
 
-若要打破可解釋性領域的自欺氛圍，工程系統必須跨越「只看觀測讀數」的初級階段，全面邁向「基於介入的因果檢驗」：以權重隨機化瀑布作為解釋工具的准入門檻，以反事實激活補丁量化真實介入力度，並嚴格區分前向互資訊與反向梯度流。唯有能夠在對抗性物理介入下依然屹立的因果鏈條，才能真正被確立為系統可信能力的硬核證據。
+若要打破可解釋性領域的自欺氛圍，工程系統必須跨越「只看觀測讀數」的初級階段，全面邁向「基於介入的因果檢驗」：以權重隨機化瀑布作為解釋工具的准入門檻，以反事實激活補丁量測真實介入力度，並嚴格區分前向互資訊與反向梯度流。唯有能夠在對抗性物理介入下依然屹立的因果鏈條，才能真正被確立為系統可信能力的硬核證據。
