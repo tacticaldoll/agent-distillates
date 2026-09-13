@@ -25,7 +25,7 @@
 
 ### 結構因果模型與中介變數的認知陷阱
 
-在因果推論體系中，觀測性讀數（Observational Readout）與介入性結果（Interventional Outcome）處於不同的認識論層級。將 Transformer 或深層網路的單元模組抽象為一個結構因果圖：輸入為 $X$，中間特徵或注意力分佈為 $M$（中介變數 Mediating Variable），最終模型預測為 $Y$。
+在因果推論體系中，觀測性讀數（Observational Readout）與介入性結果（Interventional Outcome）處於不同的認識論層級。將 Transformer 或深層網路的單元模組抽象為一個結構因果圖：輸入為 $X$，中間特徵或注意力分佈為 $M$，即中介變數（Mediating Variable），最終模型預測為 $Y$。
 
 在標準架構中，資訊流由兩條主要路徑構成：
 1. **間接路徑（Indirect Path）**：$X \to M \to Y$，輸入經過注意力加權或特徵變換投影為上下文向量；
