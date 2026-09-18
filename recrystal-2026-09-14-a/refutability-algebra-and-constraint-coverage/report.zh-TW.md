@@ -36,7 +36,7 @@ $$g: A \to \{\top, \bot\}, \qquad \mathrm{Rej}(g) = g^{-1}(\bot)$$
 
 規格效力於是被定義為 $\mathrm{Eff}(S, G) = \mathrm{Cov}(G, S)$，而非 $S$ 的字數、章節數或精確度。這個定義立刻給出一條退化定理：
 
-$$\bigcup_i \mathrm{Rej}(g_i) = \varnothing \;\Longrightarrow\; \mathrm{Eff}(S, G) = 0 \quad \text{對任意 } S$$
+$$\bigcup_i \mathrm{Rej}(g_i) = \varnothing \;\Longrightarrow\; \forall S, \; \mathrm{Eff}(S, G) = 0$$
 
 也就是說，**文字完備性與效力在形式上正交**。一份寫得極其詳盡的規格，只要沒有任何算子會因它而拒絕任何東西，它對系統行為的約束力就是零——不是「比較弱」，是恰好為零。
 

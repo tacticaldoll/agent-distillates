@@ -30,7 +30,7 @@
 人類社會的真實運作，是一個定義在無限維流形 $\mathcal{M}_{\text{life}}$ 上的高度非線性動態系統。一個家庭是否真誠申領福利、一個員工是否對團隊做出實質貢獻，取決於健康狀況、親屬照護、意外變故、在地社群互助等無數無法被完全結構化的質性變數。
 
 官僚演算法所執行的操作，是一個極端激進的**降維映射（Dimensionality Reduction Projection）**：
-$$\pi: \mathcal{M}_{\text{life}} \longrightarrow \mathbb{R}^1, \quad \mathbf{x} \mapsto s \in [0, 1]$$
+$$\pi: \mathcal{M}_{\text{life}} \to \mathbb{R}^1, \quad \mathbf{x} \mapsto s \in [0, 1]$$
 
 在圖論與微分幾何的視角下，這種映射造成了兩個不可逆的數學災難：
 

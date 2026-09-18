@@ -79,8 +79,9 @@ $$
 設解碼器本身具有自迴歸生成能力（如 Transformer 或 PixelCNN），其僅憑自身參數量即可解釋資料變異的比例為 $c \in [0, 1]$（強解碼器對應 $c \to 1$）。設潛在通道傳遞的實質資訊增益為 $a \in [0, 1]$。則簡化的局部能量代價模型為：
 
 $$
-\mathcal{L}(a) = \underbrace{(1 - c)(1 - a)^2}_{\text{未重建殘差損失}} + \underbrace{\beta a^2}_{\text{KL 資訊成本}}.
+\mathcal{L}(a) = (1 - c)(1 - a)^2 + \beta a^2.
 $$
+其中首項 $(1 - c)(1 - a)^2$ 為未重建殘差損失，次項 $\beta a^2$ 為 KL 資訊成本。
 
 對 $a$ 求一階導極值 $\frac{\partial \mathcal{L}}{\partial a} = -2(1 - c)(1 - a) + 2\beta a = 0$，可得最佳潛在增益的封閉解析解：
 
@@ -107,8 +108,9 @@ $$
 生成推斷即是使用數值積分器（如 Euler-Maruyama、DDIM 或高階 Runge-Kutta）自純高斯噪聲 $x_T \sim \mathcal{N}(0, I)$ 反向積分至 $x_0$。終端生成樣本的誤差可被嚴格分解為三項互不相通的來源：
 
 $$
-\text{Total Error} = \underbrace{\mathcal{E}_{\text{est}}(\theta)}_{\text{神經網路分數估計偏誤}} + \underbrace{\mathcal{E}_{\text{disc}}(N)}_{\text{離散化時間步長截斷誤差}} + \underbrace{\mathcal{E}_{\text{term}}(T)}_{\text{先驗邊界分佈不匹配}}.
+\mathcal{E}_{\text{total}} = \mathcal{E}_{\text{est}}(\theta) + \mathcal{E}_{\text{disc}}(N) + \mathcal{E}_{\text{term}}(T).
 $$
+各項物理來源分別為：神經網路分數估計偏誤 $\mathcal{E}_{\text{est}}(\theta)$、離散化時間步長截斷誤差 $\mathcal{E}_{\text{disc}}(N)$，以及先驗邊界分佈不匹配 $\mathcal{E}_{\text{term}}(T)$。
 
 1. **離散化截斷誤差 $\mathcal{E}_{\text{disc}}$**：隨採樣步數 $N$ 增加而單調下降，對於一階積分器呈 $\mathcal{O}(1/N)$。
 2. **分數估計偏誤 $\mathcal{E}_{\text{est}}$**：神經網路容量有限或訓練不完全造成的固有偏誤（例如平滑收縮效應）。**該誤差與採樣步數無關，甚至會隨步數增加而沿著軌跡積分持續累積**。
