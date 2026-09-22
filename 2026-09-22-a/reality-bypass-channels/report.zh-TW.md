@@ -74,4 +74,4 @@
 - Morrison, E. W., & Milliken, F. J. (2000). Organizational silence: A barrier to change and development in a pluralistic world. *Academy of Management Review*, 25(4), 706–725. [doi:10.5465/amr.2000.3707697](https://doi.org/10.5465/amr.2000.3707697)（沉默氛圍與發聲的前置條件）
 - Van Dyne, L., Ang, S., & Botero, I. C. (2003). Conceptualizing employee silence and employee voice as multidimensional constructs. *Journal of Management Studies*, 40(6), 1359–1392. [doi:10.1111/1467-6486.00384](https://doi.org/10.1111/1467-6486.00384)（截留的動機分型）
 - Donaghey, J., Cullinane, N., Dundon, T., & Wilkinson, A. (2011). Reconceptualising employee silence: Problems and prognosis. *Work, Employment and Society*, 25(1), 51–67. [doi:10.1177/0950017010386674](https://doi.org/10.1177/0950017010386674)（沉默的獎勵結構與議程設定）
-- Brockner, J.（互動正義：決策執行中的關切、尊嚴與解釋；此概念散見其程序正義系列研究，此處依 Wikipedia:Employee silence 引用的 AOM 訪談轉述）
+- Brockner, J.（互動正義：決策執行中的關切、尊嚴與解釋）〔轉引自 Wikipedia: [Employee silence](https://en.wikipedia.org/wiki/Employee_silence) 所引 AOM 訪談；原始論文待查證〕

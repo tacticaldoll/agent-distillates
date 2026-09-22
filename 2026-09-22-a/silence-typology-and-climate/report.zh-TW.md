@@ -89,6 +89,6 @@ $$
 - Milliken, F. J., & Morrison, E. W. (2003). Shades of silence: Emerging themes and future directions for research on silence in organizations. *Journal of Management Studies*, 40(6), 1563–1568. [doi:10.1111/1467-6486.00391](https://doi.org/10.1111/1467-6486.00391)
 - Van Dyne, L., Ang, S., & Botero, I. C. (2003). Conceptualizing employee silence and employee voice as multidimensional constructs. *Journal of Management Studies*, 40(6), 1359–1392. [doi:10.1111/1467-6486.00384](https://doi.org/10.1111/1467-6486.00384)
 - Tangirala, S., & Ramanujam, R. (2008). Employee silence on critical work issues: The cross-level effects of procedural justice climate. *Personnel Psychology*, 61(1), 37–68. [doi:10.1111/j.1744-6570.2008.00105.x](https://doi.org/10.1111/j.1744-6570.2008.00105.x)
-- Willman, P., et al. (2006).（階層組織對領導者既有判斷的系統性支持；篇名待查證，暫依 Wikipedia:Employee silence 轉引）
+- Willman, P., et al. (2006).（階層組織對領導者既有判斷的系統性支持）〔轉引自 Wikipedia: [Employee silence](https://en.wikipedia.org/wiki/Employee_silence)；原始出處待查證〕
 - Donaghey, J., Cullinane, N., Dundon, T., & Wilkinson, A. (2011). Reconceptualising employee silence: Problems and prognosis. *Work, Employment and Society*, 25(1), 51–67. [doi:10.1177/0950017010386674](https://doi.org/10.1177/0950017010386674)
 - Morrison, E. W. (2014). Employee voice and silence. *Annual Review of Organizational Psychology and Organizational Behavior*, 1, 173–197. [doi:10.1146/annurev-orgpsych-031413-091328](https://doi.org/10.1146/annurev-orgpsych-031413-091328)
