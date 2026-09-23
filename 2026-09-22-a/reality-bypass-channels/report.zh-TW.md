@@ -35,9 +35,9 @@
 
 員工發聲與沉默的研究對通道設計提出了四項修正條件。它們不是加分項——缺了任何一項，上表的通道都會退化成自己的儀式化版本。
 
-**第一，管道不等於安全。** 開放回饋管道但缺乏程序正義——決策是否納入員工意見、是否前後一致、是否基於準確資訊、是否可修正、是否無偏見——員工學到的會是「說了會被記住」，沉默反而加深。Brockner 所謂的互動正義補上了執行面：決策執行者是否表達關切、是否給予尊嚴、是否提供解釋。員工對「發聲的預期後果」的估計，是由這些具體互動一點一點校準的，不是由政策文件校準的。
+**第一，管道不等於安全。** 開放回饋管道但缺乏程序正義——決策是否納入員工意見、是否前後一致、是否基於準確資訊、是否可修正、是否無偏見——員工學到的會是「說了會被記下來、日後被算帳」，沉默反而加深。Tangirala & Ramanujam (2008) 發現，程序正義氛圍較高的群體裡，抑制沉默的因素作用更強。互動正義補上了執行面：Colquitt (2001) 把它拆成人際與資訊兩面——決策執行者是否以尊嚴與尊重對待當事人、是否提供解釋。員工對「發聲的預期後果」的估計，是由這些具體互動一點一點校準的，不是由政策文件校準的。
 
-**第二，無回應的回饋機制比沒有更糟。** 組織若調查員工卻不行動，製造的不只是失望，而是具體的、可引用的證據：「上次調查之後什麼都沒改」。這是在親手訓練順從性沉默——「說了也沒用」這個信念一旦被組織自己的行為證實，之後任何新管道都會被這段歷史污染，需要先償還歷史債才能被信任。
+**第二，無回應的回饋機制可能比沒有更糟。** 組織若調查員工卻不行動，製造的不只是失望，而是具體的、可引用的證據：「上次調查之後什麼都沒改」。這是在親手訓練順從性沉默——「說了也沒用」這個信念一旦被組織自己的行為證實，之後任何新管道都會被這段歷史污染，需要先償還歷史債才能被信任。
 
 **第三，先檢查沉默對誰有利。** 如果異議在考核、晉升與議程設定中實際被懲罰——不需要明文，只需要可觀察的模式——那麼現有制度就在功能上獎勵沉默。此時新增通道只是表演，因為舊制度仍在向相反方向發放獎勵，而功能性的獎勵結構比宣告性的政策更能預測行為。檢查獎勵結構永遠先於設計新管道。
 
@@ -73,5 +73,6 @@
 
 - Morrison, E. W., & Milliken, F. J. (2000). Organizational silence: A barrier to change and development in a pluralistic world. *Academy of Management Review*, 25(4), 706–725. [doi:10.5465/amr.2000.3707697](https://doi.org/10.5465/amr.2000.3707697)（沉默氛圍與發聲的前置條件）
 - Van Dyne, L., Ang, S., & Botero, I. C. (2003). Conceptualizing employee silence and employee voice as multidimensional constructs. *Journal of Management Studies*, 40(6), 1359–1392. [doi:10.1111/1467-6486.00384](https://doi.org/10.1111/1467-6486.00384)（截留的動機分型）
-- Donaghey, J., Cullinane, N., Dundon, T., & Wilkinson, A. (2011). Reconceptualising employee silence: Problems and prognosis. *Work, Employment and Society*, 25(1), 51–67. [doi:10.1177/0950017010386674](https://doi.org/10.1177/0950017010386674)（沉默的獎勵結構與議程設定）
-- Brockner, J.（互動正義：決策執行中的關切、尊嚴與解釋）〔轉引自 Wikipedia: [Employee silence](https://en.wikipedia.org/wiki/Employee_silence) 所引 AOM 訪談；原始論文待查證〕
+- Donaghey, J., Cullinane, N., Dundon, T., & Wilkinson, A. (2011). Reconceptualising employee silence: Problems and prognosis. *Work, Employment and Society*, 25(1), 51–67. [doi:10.1177/0950017010389239](https://doi.org/10.1177/0950017010389239)（沉默的獎勵結構與議程設定）
+- Tangirala, S., & Ramanujam, R. (2008). Employee silence on critical work issues: The cross-level effects of procedural justice climate. *Personnel Psychology*, 61(1), 37–68. [doi:10.1111/j.1744-6570.2008.00105.x](https://doi.org/10.1111/j.1744-6570.2008.00105.x)（程序正義氛圍與沉默）
+- Colquitt, J. A. (2001). On the dimensionality of organizational justice: A construct validation of a measure. *Journal of Applied Psychology*, 86(3), 386–400. [doi:10.1037/0021-9010.86.3.386](https://doi.org/10.1037/0021-9010.86.3.386)（互動正義的人際與資訊兩面）

@@ -1,11 +1,10 @@
 # 指標看不見的：判斷、壓縮與組織沉默
 
-<!-- front matter -->
 **Structure**: Reading Guide
 **Date**: 2026-09-22T08:04
+**Source**: conversation
 **Model**: Kimi K3
 **Agent**: GitHub Copilot Chat v0.66.0
-**Source**: conversation
 
 ## 這組報告真正要回答的問題
 
@@ -36,7 +35,7 @@ flowchart TD
 | **A-1**<br/>[有流程不等於有判斷](rules-without-judgment/report.zh-TW.md) | 外在制度為何不能產生判斷？ | 政刑 vs 德禮、合規不等於品質、規則累積的自我瓦解 | 《論語·為政》、《道德經》 | 「把規則寫得夠完整，就能讓人無法做錯」 |
 | **A-2**<br/>[指標是壓縮的殘骸](compression-and-remote-governance/report.zh-TW.md) | 指標失真為什麼是結構必然？ | 層級即壓縮、指標迴圈、Goodhart 作為遠距治理問題 | Athanassiades 1973、Glauser 1984、Fire & Guestrin 2019、Karwowski 2023 | 「指標失真靠設計更好的指標就能解決」 |
 | **A-3**<br/>[沒有人說，不代表沒有事](silence-typology-and-climate/report.zh-TW.md) | 關鍵資訊為何不進入管道？ | 沉默氛圍、順從／防衛／親社會三型、沉默的指標不可見性 | Morrison & Milliken 2000、Van Dyne 2003、Tangirala & Ramanujam 2008、Donaghey 2011 | 「員工沒回報問題，就是沒有問題」 |
-| **A-4**<br/>[讓現實繞過指標](reality-bypass-channels/report.zh-TW.md) | 失真已存在時還能做什麼？ | 未壓縮通道、通道的再殖民、沉默的獎勵結構 | Brockner 互動正義、沉默文獻的四項修正 | 「開放回饋管道就等於資訊會流動」 |
+| **A-4**<br/>[讓現實繞過指標](reality-bypass-channels/report.zh-TW.md) | 失真已存在時還能做什麼？ | 未壓縮通道、通道的再殖民、沉默的獎勵結構 | Colquitt 2001 互動正義、沉默文獻的四項修正 | 「開放回饋管道就等於資訊會流動」 |
 
 ## 核心術語對照表
 

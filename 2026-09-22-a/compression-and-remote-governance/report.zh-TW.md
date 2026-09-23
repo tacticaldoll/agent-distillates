@@ -32,7 +32,7 @@ architecture review = complete
 
 壓縮是物理，僵化是選擇——這個區分會在文末的邊界討論裡變得重要。
 
-向上溝通的文獻對壓縮機制有直接的實證支持。Athanassiades (1973) 經典地研究了階層組織中向上溝通為何失真，並把失真與下屬的升遷需求、組織氣候連起來——失真不是隨機噪音，而是有方向的系統性偏移。Glauser (1984) 的綜述進一步把影響向上資訊流的因素分為下屬、主管、上下級關係、訊息特性與組織結構五類，其結論是：資訊能否準確上傳不是個人意願問題，而是結構性問題——同樣誠實的人放進不同的結構，會產生不同的失真率。Whetsell, Kroll & DeHart-Davis (2020) 則證明正式階層、權限路徑與部門邊界會實際塑造員工向誰尋求資訊——組織圖不是紙上形式，它物理性地改變知識的流動路徑，哪些訊息會相遇、哪些永遠不會。
+向上溝通的文獻對壓縮機制有直接的支持。Athanassiades (1973) 是研究階層組織中向上溝通失真的早期經典。Glauser (1984) 的綜述把影響向上資訊流的因素分為下屬特性、主管特性、上下級關係、訊息特性與結構特性五類——五類中只有一類關於下屬本人，資訊能否準確上傳因此不只是個人意願問題。Whetsell, Kroll & DeHart-Davis (2020) 在一個 143 人的市政府中發現，正式地位、權限路徑與部門歸屬都會影響員工向誰尋求資訊——組織圖不只是紙上形式，它會改變知識的流動路徑，哪些訊息會相遇、哪些永遠不會。
 
 ### 二、自我強化的指標迴圈
 
@@ -56,9 +56,9 @@ flowchart TD
 
 Goodhart 的原始思想來自貨幣政策：一個原本穩定的統計關係，一旦被拿來作為控制目標，關係本身就會崩掉；後來被泛化為我們熟悉的「指標成為目標即失效」。Campbell 定律給出了社會面向的版本：量化指標被用於決策的程度越高，它承受腐化壓力的程度就越高，它所要測量的社會過程被扭曲的程度也越高。
 
-但把這些現象放回組織結構裡看，它們有一個共同的幾何特徵：**測量者與被測量的現實之間存在距離，而代理指標是跨越這段距離的橋**。橋會被優化，是因為橋是決策者唯一能踩到的東西；而橋被優化得越舒服，就越少人記得橋的對岸還有一塊大陸。失真程度因此不是指標品質的函數，而是距離的函數——距離越遠，代理的負載越重，它被壓垮得越快。
+但把這些現象放回組織結構裡看，它們有一個共同的幾何特徵：**測量者與被測量的現實之間存在距離，而代理指標是跨越這段距離的橋**。橋會被優化，是因為橋是決策者唯一能踩到的東西；而橋被優化得越舒服，就越少人記得橋的對岸還有一塊大陸。失真程度因此不只是指標品質的函數，也是距離的函數——距離越遠，代理的負載越重，它被壓垮得越快。這是本文把兩條文獻線接起來的推論，不是下述任何一篇研究的結論。
 
-這個重定位在實證與形式化兩側都有支持。Fire & Guestrin (2019) 分析超過一億篇論文，展示發表數、引用數、h-index 在被大規模用來評價學術表現後，如何逐漸失去作為品質代理的效力——學術界不是變笨了，而是整個領域的行為向代理收斂了。這與「架構文件和 review 次數最終取代真正的架構品質」是同一個結構，只是換了行業。Karwowski et al. (2023) 則在強化學習中把問題數學化：當 reward 只是真實目標的不完美代理時，把代理持續最佳化到極致，真實目標的表現反而可能下降。管理制度問題在這裡有一個幾乎逐點對應的形式模型——組織是學習者，KPI 是 reward，系統健康是真實目標，而過度最佳化代理的懲罰在數學上和在管理上一樣真實。
+這個重定位在實證與形式化兩側都有可對照的材料。Fire & Guestrin (2019) 分析超過一億兩千萬篇論文，展示發表數、引用數、h-index 在被大規模用來評價學術表現後，如何逐漸失去作為品質代理的效力——學術界不是變笨了，而是整個領域的行為向代理收斂了。這與「架構文件和 review 次數最終取代真正的架構品質」是同一個結構，只是換了行業。Karwowski et al. (2023) 則在強化學習中把問題數學化：當 reward 只是真實目標的不完美代理時，把代理最佳化超過某個臨界點之後，真實目標的表現反而可能下降。管理制度問題在這裡有一個幾乎逐點對應的形式模型——組織是學習者，KPI 是 reward，系統健康是真實目標，而過度最佳化代理的懲罰在數學上和在管理上一樣真實。
 
 把整條鏈寫出來：
 
@@ -86,8 +86,10 @@ $$
 
 ## 參考文獻
 
-- Athanassiades, J. C. (1973). The distortion of upward communication in hierarchical organizations. *Academy of Management Journal*, 16(2), 207–226. [JSTOR 255323](https://www.jstor.org/stable/255323)
+- Athanassiades, J. C. (1973). The distortion of upward communication in hierarchical organizations. *Academy of Management Journal*, 16(2), 207–226. [doi:10.2307/255323](https://doi.org/10.2307/255323)
+- Campbell, D. T. (1979). Assessing the impact of planned social change. *Evaluation and Program Planning*, 2(1), 67–90. [doi:10.1016/0149-7189(79)90048-X](https://doi.org/10.1016/0149-7189(79)90048-X)
 - Glauser, M. J. (1984). Upward information flow in organizations: Review and conceptual analysis. *Human Relations*, 37(8), 613–643. [doi:10.1177/001872678403700804](https://doi.org/10.1177/001872678403700804)
-- Fire, M., & Guestrin, C. (2019). Over-optimization of academic publishing metrics: Observing Goodhart's Law in action. *arXiv:1809.07841*. [arXiv](https://arxiv.org/abs/1809.07841)
+- Fire, M., & Guestrin, C. (2019). Over-optimization of academic publishing metrics: Observing Goodhart's Law in action. *GigaScience*, 8(6), giz053. [doi:10.1093/gigascience/giz053](https://doi.org/10.1093/gigascience/giz053)
+- Goodhart, C. A. E. (1984). Problems of Monetary Management: The UK Experience. In *Monetary Theory and Practice: The UK Experience* (pp. 91–121). Macmillan. ISBN 9780333360606. [doi:10.1007/978-1-349-17295-5_4](https://doi.org/10.1007/978-1-349-17295-5_4)
 - Karwowski, J., et al. (2023). Goodhart's Law in reinforcement learning. *arXiv:2310.09144*. [arXiv](https://arxiv.org/abs/2310.09144)
 - Whetsell, T. A., Kroll, A., & DeHart-Davis, L. (2020). Formal hierarchies and informal networks. *arXiv:2006.08019*. [arXiv](https://arxiv.org/abs/2006.08019)
