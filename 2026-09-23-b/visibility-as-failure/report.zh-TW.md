@@ -1,7 +1,7 @@
 # 為什麼差異一被看見就被當成失敗
 
 **Structure**: Analytical Essay
-**Date**: 2026-09-23T02:43
+**Date**: 2026-09-23T16:30
 **Source**: conversation
 **Model**: Grok 4.7
 **Agent**: GitHub Copilot Chat v0.66.0

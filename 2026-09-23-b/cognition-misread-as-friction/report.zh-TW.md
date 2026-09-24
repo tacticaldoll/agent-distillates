@@ -1,7 +1,7 @@
 # 不容易被機器處理的認知，不是應該消除的摩擦
 
 **Structure**: Analytical Essay
-**Date**: 2026-09-23T13:40
+**Date**: 2026-09-23T16:40
 **Source**: conversation
 **Model**: Grok 4.7
 **Agent**: GitHub Copilot Chat v0.66.0
