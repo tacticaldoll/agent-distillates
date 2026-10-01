@@ -1,0 +1,109 @@
+{
+    "session_id": "recrystal-2026-10-01-a",
+    "terms": {
+        "existing": [],
+        "discovered": [],
+        "declared": [],
+        "locked": [
+            {
+                "zh": "規格產物",
+                "en": "Artifact",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "規格工作流中保存與傳遞需求、設計或任務內容的協作容器；容器完整不表示其中每項主張已獲支持或授權。"
+            },
+            {
+                "zh": "設計決定",
+                "en": "Design Decision",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "在明確技術限制與方案取捨下，由相應負責者接受的實作選擇；新限制或範圍改變時須重新判斷適用性。"
+            },
+            {
+                "zh": "完成主張",
+                "en": "Completion Claim",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "針對指定工作、版本、環境與涵蓋條件提出的完成陳述，需由相稱的變更、測試、部署或執行觀察支持。"
+            },
+            {
+                "zh": "身分驗證",
+                "en": "Authentication",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "核對使用者、程序或設備所聲稱身分的過程；身分成立不等於具有對特定資源執行某項操作的權限。"
+            },
+            {
+                "zh": "存取授權",
+                "en": "Authorization",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "依角色、資源、動作與適用條件判定某個身分是否可存取資料或執行操作的控制，不能以已登入代替。"
+            },
+            {
+                "zh": "來源追蹤",
+                "en": "Provenance",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "記錄資訊的對象、產生活動、負責者及使用或衍生關係，使支持依據與版本可被查回；來源可追不認證內容真實或方法適合。"
+            },
+            {
+                "zh": "測試判準",
+                "en": "Oracle",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "決定受測行為應有何種結果的依據；其來源與版本須和受測對象分開追查，才能判斷檢查可排除哪些錯誤。"
+            },
+            {
+                "zh": "功能旗標",
+                "en": "Feature Flag",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "將功能開放與程式部署分開的執行設定，可限定對象或停用新行為；停用不會自動回復已發生的資料或交易後果。"
+            },
+            {
+                "zh": "產品確效",
+                "en": "Validation",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "依預定用途、利害關係人期望與使用情境檢查產品是否適合目的的過程，不等同於只確認實作符合既有規格。"
+            },
+            {
+                "zh": "執行前清單",
+                "en": "Manifest",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "在資料操作生效前固定並列明準備處理的對象集合，使接受範圍、實際操作與結果能按資料身分核對，而不只比較筆數。"
+            },
+            {
+                "zh": "摘要值",
+                "en": "Digest",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "依指定演算法與編碼取得的內容識別值，用於核對候選或資料清單的內容變動；其可靠性受碰撞等限制，也不判定內容合法或完整。"
+            },
+            {
+                "zh": "金絲雀發布",
+                "en": "Canary",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "對部分服務或使用對象限時部署變更並評估結果，以決定是否繼續擴大發布；判讀須考慮樣本代表性、指標歸因與共用依賴。"
+            },
+            {
+                "zh": "緊急停用控制",
+                "en": "Kill Switch",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "在指定條件下停止某類新操作的執行能力，須有操作權、作用範圍與生效確認；停止不代表能恢復在途工作或回收既有結果。"
+            },
+            {
+                "zh": "隔離區",
+                "en": "Quarantine",
+                "level": 2,
+                "session_id": "recrystal-2026-10-01-a",
+                "description": "在資料最終清除前暫時隔離對象、保留限定恢復能力的分階段處置；能否採用須符合保留與刪除義務，不能冒稱已完成不可恢復清除。"
+            }
+        ],
+        "forbidden_found": []
+    }
+}
