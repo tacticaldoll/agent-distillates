@@ -41,7 +41,7 @@
 
 容器與主張是多對多關係。一份提案可承載多個主張；同一項行為要求也可出現在規格、測試計畫與部署紀錄。本文推論，三個位置重述同一句話，不等於三份獨立支持。證據要連到命題與範圍，文件位置則用來協調查詢，不能將位置數量當作證據數量。
 
-文字的要求強度也不替來源作答。RFC 2119 定義 IETF 文件中 MUST、SHALL、SHOULD 等用語的要求程度，也提醒其效力受文件本身的要求層級影響。RFC 8174 澄清，採用這套慣例時，全大寫用語才有其特別含義，而且規範文字不必使用這些詞。[1][2] 本文推論，SHALL 可以清楚表達一項要求，不能替作者創造制定要求的權限；缺少 SHALL，也不能使有效政策失去約束力。
+文字的要求強度也不替來源作答。RFC 2119 定義 IETF 文件中 MUST、SHALL、SHOULD 等用語的要求程度，也提醒其效力受文件本身的要求層級影響。RFC 8174 澄清，採用這套慣例時，全大寫用語才有其特別含義，而且規範文字不必使用這些詞（Bradner, 1997；Leiba, 2017）。本文推論，SHALL 可以清楚表達一項要求，不能替作者創造制定要求的權限；缺少 SHALL，也不能使有效政策失去約束力。
 
 設想工程師寫下「所有登入者 SHALL 匯出租戶資料」。這句話提出了強要求，但其權限範圍仍需查政策。即使測試證明所有登入者真的能匯出，也只支持行為存在，沒有補上要求的正當性。語法清楚、實作忠實與要求有效，是三個不同命題。
 
@@ -67,7 +67,7 @@
 
 這種精確化不必立刻建立新資料庫。PR、有效政策與規格可分別保存支持與決定，只要能查回相同命題與範圍。真正接受權限仍應由可追責的角色或制度持有；自動測試可產生完成證據，部署平臺可產生執行資訊，卻不能把作者自報的 `policy-owner` 當成有效委派。
 
-來源追蹤（Provenance）可協助表達誰透過什麼活動產生哪項資訊。W3C PROV-DM 分開實體、活動、代理者，以及生成、衍生、歸屬與委派關係。[7] 本文採它作關係表示的參考，不把它當作權限系統：描述「甲代表乙」與制度真的允許甲代表乙，仍需要不同支持。
+來源追蹤（Provenance）可協助表達誰透過什麼活動產生哪項資訊。W3C 的來源資料模型 PROV-DM（PROV Data Model）分開實體、活動、代理者，以及生成、衍生、歸屬與委派關係（Moreau & Missier, 2013）。本文採它作關係表示的參考，不把它當作權限系統：描述「甲代表乙」與制度真的允許甲代表乙，仍需要不同支持。
 
 ### 三、一致的實作，必須有機會遇到不一致的答案
 
@@ -89,7 +89,7 @@
 
 測試判準（oracle）是決定結果應為何的依據，受測程式則是被比較的對象。測試一定要接觸程式，卻不必從程式抄出預期。預期若來自正式租戶政策，普通會員成功會成為反例；預期若只是現有輸出的重述，同樣的成功就會被接受。差別不在測試是否有讀 code，而在答案由什麼決定。
 
-PROV-DM §2.1.2 指出，一個活動使用了某項實體、也生成另一項實體，不足以推出後者由前者衍生；還需要影響關係。[7] 本文據此推論，「審查者讀過 code」不能單獨證明判準受 code 控制；「沒讀 code」也不能證明判準未從同源摘要取得。要分別追受測版本、預期的來源與版本，以及產生比較結果的活動。
+PROV-DM §2.1.2 指出，一個活動使用了某項實體、也生成另一項實體，不足以推出後者由前者衍生；還需要影響關係（Moreau & Missier, 2013）。本文據此推論，「審查者讀過 code」不能單獨證明判準受 code 控制；「沒讀 code」也不能證明判準未從同源摘要取得。要分別追受測版本、預期的來源與版本，以及產生比較結果的活動。
 
 下圖將兩種答案放進同一比較位置。實線是設想中的錯誤生成路徑，虛線是能迫使原理解重查的政策與接受關係，不表示外部資料天然正確。
 
@@ -146,7 +146,7 @@ assert implementation(*cases[2]) == policy_oracle(*cases[2])
 
 獨立性在此是相對於某項誤解。角色矩陣雖未由本次程式生成，也可能把普通會員錯列成管理員。它能反駁「登入即可」，不表示它自己已可靠。本文建議問「這項依據能排除哪個前提錯誤」，而不只填 `independent = true`。
 
-來源敘述本身也可以被查來源。PROV-DM 以來源束表示一組具名的來源描述，來源束也是可描述其生成與歸屬的實體。[7] 因此作者自報「判準獨立」仍是一項待查主張；讀者應能回到判準文件、版本與取得活動，不在那個自報標籤前停止。
+來源敘述本身也可以被查來源。PROV-DM 以來源束表示一組具名的來源描述，來源束也是可描述其生成與歸屬的實體（Moreau & Missier, 2013）。因此作者自報「判準獨立」仍是一項待查主張；讀者應能回到判準文件、版本與取得活動，不在那個自報標籤前停止。
 
 共享脈絡則不必被全面消除。同一作者了解需求、設計與 code，可以減少交接損失，也可能看見跨層矛盾。本文推論，重要的不是換人本身，而是關鍵前提是否有被新資訊否定的機會。多人只複述同一組 artifacts，不保證增加這種機會；同一作者真正查政策，反而可能做到。
 
@@ -154,7 +154,7 @@ assert implementation(*cases[2]) == policy_oracle(*cases[2])
 
 有了反駁入口，團隊還要知道哪些支持能沿用。穩定文件位置方便查詢，但文件內容可以變。設想原核准是「tenant-admin 匯出本租戶」，改稿後成為「管理員匯出所有租戶」；同一標題、同一個識別符與同一個核准勾選，都不會把原決定擴張到新資料邊界。
 
-PROV-DM 將實體表為具有某些固定方面的對象，另有修訂與失效關係。[7] 本文據此建議，區分議題身分與命題版本：前者追蹤正在討論哪件事，後者指出接受的究竟是哪一句話。來源連結與核准應能查到具體版本，不能只連到「最新規格」。
+PROV-DM 將實體表為具有某些固定方面的對象，另有修訂與失效關係（Moreau & Missier, 2013）。本文據此建議，區分議題身分與命題版本：前者追蹤正在討論哪件事，後者指出接受的究竟是哪一句話。來源連結與核准應能查到具體版本，不能只連到「最新規格」。
 
 沿用舊證據不是複製已通過狀態，而是重新判斷適用性。角色擴大，需要查原測試是否仍涵蓋；資料範圍改變，需要查原接受是否仍有效。純標點修正可能不改命題，不必因此全面重核，但沿用理由仍需能說明。本文推論，範圍縮小也不必然安全：刪去某些交易，可能違反原承諾或改變例外處理，集合較小不能代替語義判斷。
 
@@ -201,7 +201,7 @@ assert all(sum(pattern) != 1 for pattern in patterns)
 
 模型只檢查相等比較，不裁定政策適用性。容許誤差的比較未必具遞移性，不能直接沿用；未知、衝突與空值也尚未被定義。本文建議回報未知或衝突，不把它們當成 `000`。授權更不是第四個天數，即使三值全同，也不能推出風險已接受、疲勞效益成立或所有環境均符合。
 
-接受處置、實作、部署與觀察也是不同事件。NIST SP 800-171r3 的 03.04.03 分開變更範圍、審查核准或否決、實作紀錄與監測；03.04.04 區分變更前的安全影響與變更後的要求符合性。[8] 本文用它作事件分離的規範對照，不推定所有團隊有同一義務。
+接受處置、實作、部署與觀察也是不同事件。NIST SP 800-171 第 3 版（美國 NIST 為保護非聯邦系統中受控未分類資訊所訂的安全要求）的 03.04.03 分開變更範圍、審查核准或否決、實作紀錄與監測；03.04.04 區分變更前的安全影響與變更後的要求符合性（Ross & Pillitteri, 2024）。本文用它作事件分離的規範對照，不推定所有團隊有同一義務。
 
 該文件 §1.1 限定處理、儲存、傳輸受控非機密資訊（CUI），或保護這些元件的非聯邦系統元件，且相關 CUI 類別沒有法律、法規或政府整體政策另定的特定保護要求。其要求預定透過聯邦機關與非聯邦組織的契約或其他協議使用。該節另排除依文件定義代表聯邦機關蒐集或維護資訊、或代為使用或操作系統的組織，註腳 8 指明這些情況須遵守 FISMA 要求。本文引用的只是此限定範圍內的事件分工。
 
@@ -209,11 +209,11 @@ assert all(sum(pattern) != 1 for pattern in patterns)
 
 ### 五、工作流能傳遞材料，不能替缺席的理由作答
 
-前面的判讀也適用於規格工具。本文於 2026-10-01 查閱 OpenSpec 官方文件，以下描述固定於 commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。[3][4][5][6] 這裡討論文件中的 OPSX 工作流，不將其全部行為等同直接 CLI 命令，也不把該版本推廣到所有專案設定。
+前面的判讀也適用於規格工具。本文於 2026-10-01 查閱 OpenSpec（以提案、規格、設計與任務組織變更的規格工作流工具）官方文件，以下描述固定於 commit `3a34ea309d80df7c5defb388133eceacb4aeba17`（OpenSpec Concepts, 2026；OpenSpec Commands, 2026；OpenSpec Customization, 2026；OpenSpec Conventions, 2026）。這裡討論文件中的 OPSX 工作流，不將其全部行為等同直接 CLI 命令，也不把該版本推廣到所有專案設定。
 
-OpenSpec 將主規格放在 `openspec/specs/`，變更以 change folder 保存提案、差量規格（Delta Spec）、設計與任務。差量規格描述相對基線的新增、修改與移除，讓既有系統不必每次重述全貌。行為規格聚焦外部行為、介面、錯誤與限制，具體函式、函式庫與實作步驟則歸 design 或 tasks。[3][6] 這些是實際協作能力，不應因工具沒有包辦治理而被抹去。
+OpenSpec 將主規格放在 `openspec/specs/`，變更以 change folder 保存提案、差量規格（Delta Spec）、設計與任務。差量規格描述相對基線的新增、修改與移除，讓既有系統不必每次重述全貌。行為規格聚焦外部行為、介面、錯誤與限制，具體函式、函式庫與實作步驟則歸 design 或 tasks（OpenSpec Concepts, 2026；OpenSpec Conventions, 2026）。這些是實際協作能力，不應因工具沒有包辦治理而被抹去。
 
-預設 schema 中，specs 與 design 各依賴 proposal，tasks 依賴兩者。官方稱 dependencies 是 enablers 而非僵硬階段閘門；specs 與 design 均以 proposal 為前置，不能由概覽的順序圖推定 specs 必須先於 design。[3] 前置材料提供產生下一份內容的條件，不等於確認材料中的每句話。
+預設 schema 中，specs 與 design 各依賴 proposal，tasks 依賴兩者。官方稱 dependencies 是 enablers 而非僵硬階段閘門；specs 與 design 均以 proposal 為前置，不能由概覽的順序圖推定 specs 必須先於 design（OpenSpec Concepts, 2026）。前置材料提供產生下一份內容的條件，不等於確認材料中的每句話。
 
 本文區分四種依賴：語意依賴是理解某項工作需要哪些內容；生成依賴是產生內容用了什麼輸入。證據依賴連接支持與主張；授權依賴連接具權角色與行動。`requires` 可以讓文件前置關係可查，卻不能單靠前置存在保證內容已讀懂、證據相關或核准有效。
 
@@ -247,9 +247,9 @@ assert "fatigue-reduction" not in authorized_claims
 
 它使「前置存在而支持缺席」這種狀態可檢查，不認證研究品質、授權身分或外部控制。若團隊另有研究與政策審查，就要檢查那些控制，不可因 schema 沒有某欄便宣稱整個組織缺乏治理。本文以儲存、操作與認識三個平面區分文件位置、儲存庫事件與支持判斷，不要求建立三個新服務。
 
-該版 OPSX 的 core profile 包含 propose、explore、apply、update、sync、archive；verify 屬 expanded workflow。verify 搜尋實作證據，對照 completeness、correctness、coherence，會提示問題但不阻擋 archive。archive 檢查 artifacts 與 tasks，可提示同步差量並移動目錄；未完成 tasks 會警告，不硬性阻擋。[4] 因此不能把 verify 縮成只查檔案，也不能把 archive 擴成產品效益與政策正當性的證明。
+該版 OPSX 的 core profile 包含 propose、explore、apply、update、sync、archive；verify 屬 expanded workflow。verify 搜尋實作證據，對照 completeness、correctness、coherence，會提示問題但不阻擋 archive。archive 檢查 artifacts 與 tasks，可提示同步差量並移動目錄；未完成 tasks 會警告，不硬性阻擋（OpenSpec Commands, 2026）。因此不能把 verify 縮成只查檔案，也不能把 archive 擴成產品效益與政策正當性的證明。
 
-customization 支持專案內、可版本控制的自訂 schema，可以加入研究或 review artifact 與前置依賴。[5] 新增 `evidence.md` 能提供材料位置，不能認證其內容。官方對 operation guidance 明示它是建議而非可強制檢查；社群 schema `anvil` 列中的「只檢查 artifacts 存在」，也只是該列的執行提醒，不是所有 OpenSpec 命令的一般保證。[5]
+customization 支持專案內、可版本控制的自訂 schema，可以加入研究或 review artifact 與前置依賴（OpenSpec Customization, 2026）。新增 `evidence.md` 能提供材料位置，不能認證其內容。官方對 operation guidance 明示它是建議而非可強制檢查；社群 schema `anvil` 列中的「只檢查 artifacts 存在」，也只是該列的執行提醒，不是所有 OpenSpec 命令的一般保證（OpenSpec Customization, 2026）。
 
 本文建議，把支持材料接到協作結構，把必要身分與拒絕控制接到 CI、Git hosting、IAM 或既有部署平臺。模板寫了規則、流程執行了規則，以及規則足以辨識本次錯誤，仍是三項不同判斷。這個分工的目的，是補足真正缺席的理由或權限，而不是讓同一前提出現在更多檔案。
 
@@ -267,13 +267,13 @@ customization 支持專案內、可版本控制的自訂 schema，可以加入�
 
 最強反方是，成熟團隊已有 PR、CODEOWNERS、必要審查、安全測試與部署限制，規格工具只負責協作。這個反方成立時，本文要查的是現有控制是否涵蓋此主張，而不是要求工具重做一套組織治理。缺欄位與缺控制，不能畫等號。
 
-私有函式改名也不必送進政策資料庫。若契約清楚、影響局部，相關測試與 review 足以辨識本次錯誤，簡短變更就可以合理。OpenSpec 官方亦宣告 fluid、iterative、brownfield-first，並依風險與協作複雜度提高嚴密程度。[3][6] 輕量不是缺陷，輕量卻被宣稱為全面驗證才是推論問題。
+私有函式改名也不必送進政策資料庫。若契約清楚、影響局部，相關測試與 review 足以辨識本次錯誤，簡短變更就可以合理。OpenSpec 官方亦宣告 fluid、iterative、brownfield-first，並依風險與協作複雜度提高嚴密程度（OpenSpec Concepts, 2026；OpenSpec Conventions, 2026）。輕量不是缺陷，輕量卻被宣稱為全面驗證才是推論問題。
 
 本文建議只結構化會跨責任邊界的內容，例如正式政策、跨租戶資料、難以回收的操作與對外效益宣稱。「低風險」仍須能說明影響、可逆性與判準；若作者自報後就免查資料後果，這個標籤本身便重演了欄位權威問題。
 
 ### 三、來源可追，仍不等於方法可靠
 
-正式角色矩陣可能錯，測試方法可能漏掉錯誤，來源關係也可能被作者誤述。PROV-DM 提供描述關係的方式，不認證量測誠實、方法有效或委派合法。[7] 本文建議查回材料版本、取得方式與實際權限，而不只確認連結非空。
+正式角色矩陣可能錯，測試方法可能漏掉錯誤，來源關係也可能被作者誤述。PROV-DM 提供描述關係的方式，不認證量測誠實、方法有效或委派合法（Moreau & Missier, 2013）。本文建議查回材料版本、取得方式與實際權限，而不只確認連結非空。
 
 同一作者也可以產生有用反例。設想格式轉換有明確 schema、限定案例集合與可重現比較，作者執行檢查仍可能遇到自己的錯誤。但往返轉換（round-trip）不能單獨證明符合外部格式：編碼與解碼可能共享同一誤解。本文推論，獨立性需求由要排除的錯誤決定，不由固定換作者儀式決定。
 
@@ -315,7 +315,7 @@ customization 支持專案內、可版本控制的自訂 schema，可以加入�
 
 ### 三、修訂與封存不應替接受決定作答
 
-規格工作流中的事件可以幫忙保存進度，卻需要按其輸入解讀。下表以所引版本的 OPSX 描述為準，[4] 將夜間模式走過的事件與尚欠的判斷分開；不是命令操作教學，也不表示每項事件都是部署的必經順序。
+規格工作流中的事件可以幫忙保存進度，卻需要按其輸入解讀。下表以所引版本的 OPSX 描述為準（OpenSpec Commands, 2026），將夜間模式走過的事件與尚欠的判斷分開；不是命令操作教學，也不表示每項事件都是部署的必經順序。
 
 | 事件 | 工作流能完成什麼 | 不可單獨推出什麼 |
 | :--- | :--- | :--- |
@@ -326,11 +326,11 @@ customization 支持專案內、可版本控制的自訂 schema，可以加入�
 | sync | 合併差量到主規格，change 仍可活躍 | 現況描述自動成為規範 |
 | archive | 保存 artifacts 並移動變更目錄 | 執行觀察與殘餘風險已結案 |
 
-update 在該版文件中不編輯 code，並要求逐份 artifact 確認寫入。[4] 這是對文字變更的控制，不是所有接受問題的總入口。本文建議修訂保留觸發來源、改變的命題、撤回的假設、接受角色與影響範圍，讓同一行 diff 可以被理解為學習、描述修正或要求變更。
+update 在該版文件中不編輯 code，並要求逐份 artifact 確認寫入（OpenSpec Commands, 2026）。這是對文字變更的控制，不是所有接受問題的總入口。本文建議修訂保留觸發來源、改變的命題、撤回的假設、接受角色與影響範圍，讓同一行 diff 可以被理解為學習、描述修正或要求變更。
 
 新 benchmark 顯示方案不合適，可以迫使設計改變；程式已經如此，也可以促使補記現況。但若把「程式已如此」拿來證明「要求應如此」，就欠缺另一項支持。合法的觀察更新不能偷偷成為政策制定，對帳也不能只選文件或程式中較容易改的一方。
 
-主規格的角色也須如實命名。所引 Concepts 正文以目前如何運作描述 specs，glossary 則使用 current agreed-upon behavior。[3] 本文推論，成熟團隊可以同時使用兩種表述，但必須限定同意的對象。自然語言驅動的 agent 若只收到「讓兩者一致」，可能把文件追著 code 改，卻沒有回答有效要求是否應維持。
+主規格的角色也須如實命名。所引 Concepts 正文以目前如何運作描述 specs，glossary 則使用 current agreed-upon behavior（OpenSpec Concepts, 2026）。本文推論，成熟團隊可以同時使用兩種表述，但必須限定同意的對象。自然語言驅動的 agent 若只收到「讓兩者一致」，可能把文件追著 code 改，卻沒有回答有效要求是否應維持。
 
 最後，本文建議在接受行動時確認哪些後果不能回復。功能旗標（feature flag）可限制可逆配色試行的開放對象，搭配觀察與停止方式；但已匯出的資料不會因關閉端點而自動收回，退款也可能留下交易責任。回復部署、停止新增後果與處理既有後果，是不同工作；一個可關閉的按鈕，不會使整個行動都可逆。
 
@@ -348,13 +348,13 @@ update 在該版文件中不編輯 code，並要求逐份 artifact 確認寫入�
 
 ## 參考文獻 (References)
 
-工具文件固定於同一 commit，W3C 採日期版；讀取日期為 2026-10-01。文獻支持正文所指的規則與文件描述，不為本文設想案例提供事故或成效證據。
+文中以（作者, 年份）標示出處，條目依作者字母排序。工具文件固定於同一 commit，W3C 採日期版；讀取日期為 2026-10-01。文獻支持正文所指的規則與文件描述，不為本文設想案例提供事故或成效證據。
 
-1. Bradner, S. (1997). *Key words for use in RFCs to Indicate Requirement Levels*. RFC 2119, BCP 14. [doi:10.17487/RFC2119](https://doi.org/10.17487/RFC2119).
-2. Leiba, B. (2017). *Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words*. RFC 8174, BCP 14，尤其 §2。 [doi:10.17487/RFC8174](https://doi.org/10.17487/RFC8174).
-3. Fission AI. (2026). *Concepts*. OpenSpec 官方文件，commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/concepts.md).
-4. Fission AI. (2026). *Commands*. OpenSpec 官方 OPSX 工作流文件，同上版本。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/commands.md).
-5. Fission AI. (2026). *Customization*. OpenSpec 官方文件，同上版本。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/customization.md).
-6. Fission AI. (2026). *OpenSpec Conventions Specification*. 同上版本，引用 Behavior-First Specification Boundary 與 Progressive Rigor。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/openspec/specs/openspec-conventions/spec.md).
-7. Moreau, L., & Missier, P. (Eds.). (2013). *PROV-DM: The PROV Data Model*. W3C Recommendation, 30 April 2013，尤其 §§2.1.2、2.2.2、5.1.1、5.1.8、5.2、5.3、5.4。 [日期版](https://www.w3.org/TR/2013/REC-prov-dm-20130430/).
-8. Ross, R., & Pillitteri, V. (2024). *Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations*. NIST Special Publication 800-171, Revision 3，尤其 §§1.1、03.04.03、03.04.04。 [doi:10.6028/NIST.SP.800-171r3](https://doi.org/10.6028/NIST.SP.800-171r3).
+- Bradner, S. (1997). *Key words for use in RFCs to Indicate Requirement Levels*. RFC 2119, BCP 14. [doi:10.17487/RFC2119](https://doi.org/10.17487/RFC2119).
+- Fission AI. (2026). *Commands*（文中簡稱 OpenSpec Commands）. OpenSpec 官方 OPSX 工作流文件，同上版本。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/commands.md).
+- Fission AI. (2026). *Concepts*（文中簡稱 OpenSpec Concepts）. OpenSpec 官方文件，commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/concepts.md).
+- Fission AI. (2026). *Customization*（文中簡稱 OpenSpec Customization）. OpenSpec 官方文件，同上版本。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/customization.md).
+- Fission AI. (2026). *OpenSpec Conventions Specification*（文中簡稱 OpenSpec Conventions）. 同上版本，引用 Behavior-First Specification Boundary 與 Progressive Rigor。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/openspec/specs/openspec-conventions/spec.md).
+- Leiba, B. (2017). *Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words*. RFC 8174, BCP 14，尤其 §2。 [doi:10.17487/RFC8174](https://doi.org/10.17487/RFC8174).
+- Moreau, L., & Missier, P. (Eds.). (2013). *PROV-DM: The PROV Data Model*. W3C Recommendation, 30 April 2013，尤其 §§2.1.2、2.2.2、5.1.1、5.1.8、5.2、5.3、5.4。 [日期版](https://www.w3.org/TR/2013/REC-prov-dm-20130430/).
+- Ross, R., & Pillitteri, V. (2024). *Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations*. NIST Special Publication 800-171, Revision 3，尤其 §§1.1、03.04.03、03.04.04。 [doi:10.6028/NIST.SP.800-171r3](https://doi.org/10.6028/NIST.SP.800-171r3).

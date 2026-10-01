@@ -22,7 +22,7 @@
 
 一項檢查通過，只有對它能區分的錯誤才有意義。若它查的是「程式是否符合目前規格」，它可以找到漏做任務、缺少情境或設計與實作不一致；若要判斷規格是否適合使用者與環境，則需要能挑戰起始理解的判斷依據。兩者互補，不能由檢查名稱互相代替。
 
-NASA 的系統工程手冊將產品查證（verification）連到符合規格，將產品確效（validation）連到預定用途、利害關係人期望與使用情境；其 V&V 計畫綱要也要求說明責任與變更核准權。[1] 這是本文採用的工作區分，不表示所有團隊必須照搬 NASA 的生命週期，也不表示查證一定只查文字、確效一定要等上線才做。
+NASA 的系統工程手冊將產品查證（verification）連到符合規格，將產品確效（validation）連到預定用途、利害關係人期望與使用情境；其 V&V 計畫綱要也要求說明責任與變更核准權（NASA, n.d.）。這是本文採用的工作區分，不表示所有團隊必須照搬 NASA 的生命週期，也不表示查證一定只查文字、確效一定要等上線才做。
 
 測試判準（oracle）是決定結果應為何的依據。設想正式政策只允許本租戶管理員匯出資料，但規格把管理員解讀成任何登入者。程式與測試若都採這個解讀，通過就支持「此解讀被忠實實作」，不支持「此解讀符合政策」。查證可以完成自己取得的任務，確效所需的問題卻仍未被問到。
 
@@ -76,7 +76,7 @@ assert posterior(prior, Fraction(3, 4), Fraction(1, 4)) == Fraction(3, 4)
 
 候選至少包含行為或命題版本、程式與組態、政策版本、環境、資料範圍與本次操作。對刪除工作，執行前清單（manifest）列出準備處理的對象；對匯出工作，角色、租戶與資料類別限定資源邊界。這些條件改變，就要重新檢查哪些證據與許可仍可沿用。
 
-來源追蹤（Provenance）把受測對象、取得結果的活動與負責者分開表示。W3C PROV-DM 還區分使用與衍生：活動讀了程式、又產出報告，不足以單獨證明預期答案由程式決定。[3] 因此證據紀錄應分別指向受測版本、判準版本、資料或 fixture、執行時間與結果，而不是只寫 `tests passed`。
+來源追蹤（Provenance）把受測對象、取得結果的活動與負責者分開表示。W3C 的來源資料模型 PROV-DM 還區分使用與衍生：活動讀了程式、又產出報告，不足以單獨證明預期答案由程式決定（Moreau & Missier, 2013）。因此證據紀錄應分別指向受測版本、判準版本、資料或 fixture、執行時間與結果，而不是只寫 `tests passed`。
 
 本文建議，讓版本綁定包含組態與政策，而不只包含 commit。相同 binary 配上不同開關、角色資料或查詢條件，可能產生不同結果。部署平臺若只比對程式碼識別符，仍可能接受「程式沒變、環境已變」的錯配。這是對支持適用性的延伸，不是所有證據都要使用同一種序列化格式。
 
@@ -107,11 +107,11 @@ assert posterior(prior, Fraction(3, 4), Fraction(1, 4)) == Fraction(3, 4)
 
 授權可以接受已知剩餘風險，不會把未知範圍變成已知。若還不清楚備份與副本在哪裡，有權角色的簽名不會完成盤點。本文建議先把操作縮成可查範圍或模擬，再取得新資訊，而不是用更多 approval 消除缺席的證據。
 
-角色分離也要有能力與權限。NIST SP 800-171r3 的 03.01.04 要求辨識需要分離的職責，並用存取授權支持這種分離；其說明涉及程式設計、評估、組態與稽核等職責。[4] 本文用它作制度對照，不推出所有軟體變更都需雙人簽核。第二人若只能看同一摘要，或無權拒絕，分離仍可能只是外觀。
+角色分離也要有能力與權限。NIST SP 800-171 第 3 版（美國 NIST 為保護非聯邦系統中受控未分類資訊所訂的安全要求）的 03.01.04 要求辨識需要分離的職責，並用存取授權支持這種分離；其說明涉及程式設計、評估、組態與稽核等職責（Ross & Pillitteri, 2024）。本文用它作制度對照，不推出所有軟體變更都需雙人簽核。第二人若只能看同一摘要，或無權拒絕，分離仍可能只是外觀。
 
-GitHub environments 提供一個具體執行例子：在適用方案與 repository 設定下，使用該 environment 的 workflow job 要先滿足已配置的 protection rules，才能執行或取用相關 secrets。Required reviewers 可列多人，但其中一人核准即可；Prevent self-review 排除的是觸發該次 workflow run 的人，不是自動辨認程式作者或需求產出者。[5]
+GitHub environments（GitHub Actions 的部署環境設定）提供一個具體執行例子：在適用方案與 repository 設定下，使用該 environment 的 workflow job 要先滿足已配置的 protection rules，才能執行或取用相關 secrets。Required reviewers 可列多人，但其中一人核准即可；Prevent self-review 排除的是觸發該次 workflow run 的人，不是自動辨認程式作者或需求產出者（GitHub, n.d.）。
 
-因此，本文建議不要將某個產品開關當作完整職責分離。還要核對誰能改 workflow、修改 environment、繞過規則或取得另一條執行通道。GitHub 文件也提供禁止管理員繞過的設定，且規則能力受方案與 repository 可見性影響。[5] 能配置一個閘門，與實際動作無法避開該閘門，是不同問題。
+因此，本文建議不要將某個產品開關當作完整職責分離。還要核對誰能改 workflow、修改 environment、繞過規則或取得另一條執行通道。GitHub 文件也提供禁止管理員繞過的設定，且規則能力受方案與 repository 可見性影響（GitHub, n.d.）。能配置一個閘門，與實際動作無法避開該閘門，是不同問題。
 
 下面以資料操作表示一個最小許可模型。本文設定 `Subject` 的程式摘要、政策、環境與目標集合共同識別候選；`profiles`、`producers`、`evidence`、`controls` 與可核准角色均假設來自已核實、由執行平臺掌握且提交者不可寫入的登錄資料，產出者身分不能靠作者自報或核准者改填。傳入的 `Approval` 亦假設核准事件與身分已驗證，並綁定其中的候選與有效區間。它們不是作者提交的 YAML；模型不實作取得與認證這些資料的過程，直接建構同名物件不會在真實平臺取得許可。
 
@@ -262,11 +262,11 @@ assert rejected("Revoked", "authorize")
 
 合法路徑經過各責任事件；跳過授權、核准即宣稱已觀察、或撤銷後沿用許可，都沒有對應轉移。這不證明部署平臺真的拒絕了動作，也不證明上述流程適合所有 change。狀態機提供可以問責的表示，執行層仍要負責把拒絕變成實際效果。
 
-金絲雀發布（canary）提供一種有限暴露的觀察方式。SRE Workbook 將它定義為部分、限時部署與評估；需要部署到子群的能力、判斷好壞的過程，以及把評估接進發布流程。[6] 本文建議把它視為補足環境資訊的機制，不把「有 canary」當成接受許可的快捷鍵。
+金絲雀發布（canary）提供一種有限暴露的觀察方式。Google 的 Google 的 SRE Workbook 將它定義為部分、限時部署與評估；需要部署到子群的能力、判斷好壞的過程，以及把評估接進發布流程（Warner et al., 2018）。本文建議把它視為補足環境資訊的機制，不把「有 canary」當成接受許可的快捷鍵。
 
-觀察還要有足夠代表性。只服務少數正常請求，沒有普通會員或跨租戶輸入，不會測出拒絕條件；平均成功率也可能掩蓋少數嚴重的資料權限錯誤。SRE 對樣本、持續時間、指標歸因與共用依賴均提醒限制，並指出 canary 與 control 可以一同惡化。[6] 相對差異不大，不能因此宣稱兩邊均正常。
+觀察還要有足夠代表性。只服務少數正常請求，沒有普通會員或跨租戶輸入，不會測出拒絕條件；平均成功率也可能掩蓋少數嚴重的資料權限錯誤。SRE 對樣本、持續時間、指標歸因與共用依賴均提醒限制，並指出 canary 與 control 可以一同惡化（Warner et al., 2018）。相對差異不大，不能因此宣稱兩邊均正常。
 
-本文建議同時定義相對比較與不能跨越的絕對限制。例如可容許一定延遲變化，不表示可容許普通會員成功匯出；可用性錯誤預算也不是洩漏資料的許可。所引 SRE 章節的可用性簡化模型明示不涵蓋資料洩漏等事故影響。[6] 不同後果需要不同判準。
+本文建議同時定義相對比較與不能跨越的絕對限制。例如可容許一定延遲變化，不表示可容許普通會員成功匯出；可用性錯誤預算也不是洩漏資料的許可。所引 SRE 章節的可用性簡化模型明示不涵蓋資料洩漏等事故影響（Warner et al., 2018）。不同後果需要不同判準。
 
 停止能力應在放行前確認。反駁條件（Defeater）是使現有支持或許可失效的指定條件；緊急停用控制（kill switch）則是停止某類新動作的執行能力。本文建議明確誰能操作、作用於哪些節點、如何查到生效，以及停止新請求是否還有在途工作。寫了「可回滾」不是已演練的恢復能力。
 
@@ -280,9 +280,9 @@ assert rejected("Revoked", "authorize")
 
 生成圖與生效圖因此需要分開理解。生成圖回答建立下一份材料需要哪些上下文；生效圖回答什麼證據與權限准許下一個動作。模板可以生成 approval record，卻不能自己成為批准者。增加 `requires` 邊能改善材料依賴，未必增加任何會拒絕無權執行的控制。
 
-OpenSpec 是一個可用的協作對照。本文於 2026-10-01 核對其官方文件，工具描述固定於 commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。該版 OPSX verify 查 completeness、correctness、coherence，搜尋實作證據並報告問題，不阻擋 archive；archive 可提示同步並保存 change，未完成 tasks 會警告。[2] 這些是有價值的局部工作，不等於本文設計的生效閘門已存在。
+OpenSpec（以提案、規格、設計與任務組織變更的規格工作流工具）是一個可用的協作對照。本文於 2026-10-01 核對其官方文件，工具描述固定於 commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。該版 OPSX verify 查 completeness、correctness、coherence，搜尋實作證據並報告問題，不阻擋 archive；archive 可提示同步並保存 change，未完成 tasks 會警告（OpenSpec Commands, 2026）。這些是有價值的局部工作，不等於本文設計的生效閘門已存在。
 
-官方支持專案內可版本控制的自訂 schema、templates 與 `requires`；慣例規格亦要求以行為契約為主，並按風險與協作複雜度增加嚴密程度。[7][8] 本文建議低風險可將問題與負責者、行為契約、測試結果放在既有材料中；高風險才明確展開核准與運行責任，不要求每項變更都產生七份長文。
+官方支持專案內可版本控制的自訂 schema、templates 與 `requires`；慣例規格亦要求以行為契約為主，並按風險與協作複雜度增加嚴密程度（OpenSpec Customization, 2026；OpenSpec Conventions, 2026）。本文建議低風險可將問題與負責者、行為契約、測試結果放在既有材料中；高風險才明確展開核准與運行責任，不要求每項變更都產生七份長文。
 
 實際拒絕應放在有能力的系統。資料結構檢查由 CLI 或 CI 完成，角色與接受關係由 Git hosting 或 IAM 核對，證據由 test runner 取得，部署由 CD 平臺受限執行，觀察與停止則由監測和運行控制承擔。人工控制可以有價值，但沒有可強制執行的介面時，不能把人工承諾寫成機械保證。
 
@@ -368,7 +368,7 @@ dry run 產生固定 manifest，讓資料集合可審查；執行前再次核對
 
 私有函式改名可以保留簡短變更、相關測試與一般回復方式；API 變更加入領域確認與分段開放；大量刪除需要 manifest、保留要求、相稱的恢復或補救能力。緊急修補則採制度允許的短期例外與事後審核，不等於將常規拒絕永久移除。各自的新負擔都應對應實際後果。
 
-NIST 03.04.03、03.04.04 亦分開核准、實作紀錄、監測與變更前後的安全判斷。[4] 但其 §1.1 限定 CUI 非聯邦系統相關元件、沒有其他法律或政策特定保護要求的情況，並透過契約或協議使用；依定義代表聯邦機關處理資訊或操作系統的情況另受 FISMA 要求。本文引用這種事件分工，不替所有團隊宣告相同法律義務。
+NIST 03.04.03、03.04.04 亦分開核准、實作紀錄、監測與變更前後的安全判斷（Ross & Pillitteri, 2024）。但其 §1.1 限定 CUI 非聯邦系統相關元件、沒有其他法律或政策特定保護要求的情況，並透過契約或協議使用；依定義代表聯邦機關處理資訊或操作系統的情況另受 FISMA 要求。本文引用這種事件分工，不替所有團隊宣告相同法律義務。
 
 若平台無法強制某項要求，可以先保存具名人工決定與可查連結，讓缺口可見，再決定是否值得補執行介面。不能因無法自動化就說它沒有價值，也不能因已有人工確認就說已具機械拒絕保證。協作材料與外部控制應連結，不應互相冒充。
 
@@ -384,13 +384,13 @@ NIST 03.04.03、03.04.04 亦分開核准、實作紀錄、監測與變更前後�
 
 ## 參考文獻 (References)
 
-讀取日期為 2026-10-01。OpenSpec 使用同一 commit，W3C 使用日期版；NASA、GitHub 與 SRE 為所列官方網頁，其內容與產品能力仍須按版本及適用條件判讀。本文的風險路徑、許可模型與狀態機是明示設定或建議，不是文獻已測得的治理成效。
+文中以（作者, 年份）標示出處，條目依作者字母排序。讀取日期為 2026-10-01。OpenSpec 使用同一 commit，W3C 使用日期版；NASA、GitHub 與 SRE 為所列官方網頁，其內容與產品能力仍須按版本及適用條件判讀。本文的風險路徑、許可模型與狀態機是明示設定或建議，不是文獻已測得的治理成效。
 
-1. National Aeronautics and Space Administration. (n.d.). *System Engineering Handbook: Appendix*. 線上附錄，尤其 Appendix B: Glossary 中 Verification (of a product)、Validation (of a product) 定義，及 Appendix I 中 V&V 計畫綱要 §§1.1、1.2；頁面標示更新日 2023-07-26。 [官方網頁](https://www.nasa.gov/reference/system-engineering-handbook-appendix/).
-2. Fission AI. (2026). *Commands*. OpenSpec 官方 OPSX 工作流文件，commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/commands.md).
-3. Moreau, L., & Missier, P. (Eds.). (2013). *PROV-DM: The PROV Data Model*. W3C Recommendation, 30 April 2013，尤其 §§2.1.2、5.1、5.2、5.3。 [日期版](https://www.w3.org/TR/2013/REC-prov-dm-20130430/).
-4. Ross, R., & Pillitteri, V. (2024). *Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations*. NIST SP 800-171, Revision 3，尤其 §§1.1、03.01.04、03.04.03、03.04.04。 [doi:10.6028/NIST.SP.800-171r3](https://doi.org/10.6028/NIST.SP.800-171r3).
-5. GitHub. (n.d.). *Managing environments for deployment*. Required reviewers、Prevent self-review、protection rules 與適用方案的設定說明。 [官方文件](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment).
-6. Warner, A., & Davidovič, Š., with Hidalgo, A., Beyer, B., Smith, K., & Duftler, M. (2018). *Canarying Releases*. In *The Site Reliability Workbook*, Chapter 16，尤其 Canary Implementation、Selecting and Evaluating Metrics、Dependencies and Isolation、Requirements on Monitoring Data。 [官方線上章節](https://sre.google/workbook/canarying-releases/).
-7. Fission AI. (2026). *Customization*. OpenSpec 官方文件，同上 commit。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/customization.md).
-8. Fission AI. (2026). *OpenSpec Conventions Specification*. 同上 commit，引用 Behavior-First Specification Boundary 與 Progressive Rigor。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/openspec/specs/openspec-conventions/spec.md).
+- Fission AI. (2026). *Commands*（文中簡稱 OpenSpec Commands）. OpenSpec 官方 OPSX 工作流文件，commit `3a34ea309d80df7c5defb388133eceacb4aeba17`。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/commands.md).
+- Fission AI. (2026). *Customization*（文中簡稱 OpenSpec Customization）. OpenSpec 官方文件，同上 commit。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/docs/customization.md).
+- Fission AI. (2026). *OpenSpec Conventions Specification*（文中簡稱 OpenSpec Conventions）. 同上 commit，引用 Behavior-First Specification Boundary 與 Progressive Rigor。 [固定版本](https://github.com/Fission-AI/OpenSpec/blob/3a34ea309d80df7c5defb388133eceacb4aeba17/openspec/specs/openspec-conventions/spec.md).
+- GitHub. (n.d.). *Managing environments for deployment*. Required reviewers、Prevent self-review、protection rules 與適用方案的設定說明。 [官方文件](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment).
+- Moreau, L., & Missier, P. (Eds.). (2013). *PROV-DM: The PROV Data Model*. W3C Recommendation, 30 April 2013，尤其 §§2.1.2、5.1、5.2、5.3。 [日期版](https://www.w3.org/TR/2013/REC-prov-dm-20130430/).
+- National Aeronautics and Space Administration. (n.d.). *System Engineering Handbook: Appendix*. 線上附錄，尤其 Appendix B: Glossary 中 Verification (of a product)、Validation (of a product) 定義，及 Appendix I 中 V&V 計畫綱要 §§1.1、1.2；頁面標示更新日 2023-07-26。 [官方網頁](https://www.nasa.gov/reference/system-engineering-handbook-appendix/).
+- Ross, R., & Pillitteri, V. (2024). *Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations*. NIST SP 800-171, Revision 3，尤其 §§1.1、03.01.04、03.04.03、03.04.04。 [doi:10.6028/NIST.SP.800-171r3](https://doi.org/10.6028/NIST.SP.800-171r3).
+- Warner, A., & Davidovič, Š., with Hidalgo, A., Beyer, B., Smith, K., & Duftler, M. (2018). *Canarying Releases*. In *The Site Reliability Workbook*, Chapter 16，尤其 Canary Implementation、Selecting and Evaluating Metrics、Dependencies and Isolation、Requirements on Monitoring Data。 [官方線上章節](https://sre.google/workbook/canarying-releases/).
